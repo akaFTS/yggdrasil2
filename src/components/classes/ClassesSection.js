@@ -38,9 +38,23 @@ class ClassesSection extends Component {
         {isOpen && (
           <main className="flex-l pt3 ph1 ph2-l">
             <div className="w-100 w-50-l ph2 mb4">
-              <ClassesBox />
+              {rules.boxes.left.map(box => (
+                <ClassesBox
+                  title={box.title}
+                  classes={box.classes}
+                  colors={colors}
+                />
+              ))}
             </div>
-            <div className="w-100 w-50-l ph2 mb4" />
+            <div className="w-100 w-50-l ph2 mb4">
+              {rules.boxes.right.map(box => (
+                <ClassesBox
+                  colors={colors}
+                  title={box.title}
+                  classes={box.classes}
+                />
+              ))}
+            </div>
           </main>
         )}
       </article>
