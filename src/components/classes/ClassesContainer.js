@@ -4,8 +4,15 @@ import ClassesSection from './ClassesSection'
 const ClassesContainer = () => {
   return (
     <main>
-      <ClassesSection />
-      <ClassesSection />
+      <ClassesSection
+        title="Geral"
+        colors={['dark-gray', 'bg-light-silver']}
+        shouldStartOpen
+      />
+      <ClassesSection
+        title="Teoria"
+        colors={['dark-gray', 'bg-light-silver']}
+      />
     </main>
   )
 }
