@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Classe from './Classe'
+import ClasseSlot from './ClasseSlot'
 
 const ClassesBox = ({ title, classes, colors }) => {
   return (
@@ -9,7 +9,7 @@ const ClassesBox = ({ title, classes, colors }) => {
         <header className={`${colors[0]} fw6 f4 pa3`}>{title}</header>
         <main className="pa3 pt0 flex flex-wrap">
           {classes.map(code => (
-            <Classe code={code} color={colors[0]} />
+            <ClasseSlot code={code} color={colors[0]} />
           ))}
         </main>
       </article>
