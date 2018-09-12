@@ -6,6 +6,7 @@ export default [
     wcredits: 1,
     summary:
       'Esta matéria busca dar palestras ao aluno sobre como se comportar no BCC',
+    dependencies: [],
   },
   {
     code: 'MAC0110',
@@ -14,5 +15,6 @@ export default [
     wcredits: 0,
     summary:
       'Esta matéria ensina o basicão de C e Python ao aluno recem-entrado no curso',
+    dependencies: ['MAC0101'],
   },
 ]

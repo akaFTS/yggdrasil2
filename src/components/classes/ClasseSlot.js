@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import allClasses from '../../tracks/allclasses'
+import withEvolution from '../evolution/withEvolution'
 import ClasseModal from './ClasseModal'
 import EnabledClasse from './EnabledClasse'
 import DisabledClasse from './DisabledClasse'
@@ -21,23 +22,43 @@ class ClasseSlot extends Component {
     this.setState({ isModalOpen: false })
   }
 
+  handleToggleDone = done => {
+    const { doClasse, undoClasse, code } = this.props
+    done ? doClasse(code) : undoClasse(code)
+  }
+
   render() {
-    const { code, color } = this.props
+    const { code, color, doneClasses } = this.props
     const { isModalOpen } = this.state
+    const isClasseDone = doneClasses.some(classe => classe === code)
     const classe = allClasses.find(classe => classe.code === code)
+
+    const isClasseLocked = !classe.dependencies.reduce((acc, dep) => {
+      return acc && doneClasses.some(doneClasse => doneClasse === dep)
+    }, true)
 
     return (
       <React.Fragment>
-        <DisabledClasse
-          classe={classe}
-          color={color}
-          onClick={this.openModal}
-        />
+        {isClasseDone ? (
+          <EnabledClasse
+            classe={classe}
+            color={color}
+            onClick={this.openModal}
+          />
+        ) : (
+          <DisabledClasse
+            classe={classe}
+            onClick={this.openModal}
+            locked={isClasseLocked}
+          />
+        )}
         <ClasseModal
           classe={classe}
           color={color}
           isOpen={isModalOpen}
+          isClasseDone={isClasseDone}
           handleCloseModal={this.handleCloseModal}
+          handleToggleDone={this.handleToggleDone}
         />
       </React.Fragment>
     )
@@ -49,4 +70,4 @@ ClasseSlot.propTypes = {
   color: PropTypes.string.isRequired,
 }
 
-export default ClasseSlot
+export default withEvolution(ClasseSlot)

@@ -9,7 +9,7 @@ const ClassesBox = ({ title, classes, colors }) => {
         <header className={`${colors[0]} fw6 f4 pa3`}>{title}</header>
         <main className="pa3 pt0 flex flex-wrap">
           {classes.map(code => (
-            <ClasseSlot code={code} color={colors[0]} />
+            <ClasseSlot key={code} code={code} color={colors[0]} />
           ))}
         </main>
       </article>
