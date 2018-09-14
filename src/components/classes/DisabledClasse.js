@@ -4,12 +4,15 @@ import Lock from './Lock'
 
 const DisabledClasse = ({ classe, locked, onClick }) => {
   return (
-    <div className="flex-none pa2">
+    <div className="flex-none pa1">
       <div
         className="w4 br4 ba bw1 b--dashed b--moon-gray pa2 flex flex-column items-center hover-bg-light-gray pointer relative"
         onClick={onClick}
       >
-        <span className="f7 moon-gray tc lh-title h2 overflow-y-hidden">
+        <span
+          className="f7 light-silver tc lh-title overflow-y-hidden"
+          style={{ height: '3rem' }}
+        >
           {classe.name}
         </span>
         <div

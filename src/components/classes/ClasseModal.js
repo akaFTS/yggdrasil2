@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Modal from '@vtex/styleguide/lib/Modal'
+import Modal from 'react-responsive-modal'
 import Switch from 'react-ios-switch'
 import ClasseSlot from './ClasseSlot'
 
@@ -21,7 +21,12 @@ class ClasseModal extends Component {
     } = this.props
 
     return (
-      <Modal centered isOpen={isOpen} onClose={handleCloseModal}>
+      <Modal
+        center
+        open={isOpen}
+        onClose={handleCloseModal}
+        classNames={{ modal: 'br4 w-100 w-70-l' }}
+      >
         <div className="montserrat">
           <div className="flex items-center mb4">
             <img
@@ -47,7 +52,15 @@ class ClasseModal extends Component {
             />
             <span className="f4 ml2 fw5 mid-gray">Feito</span>
           </div>
-          <div className="bt b--moon-gray pv4">{classe.summary}</div>
+          <div className="bt b--moon-gray pv4 lh-title">
+            {classe.summary.split('\n').map((item, key) => {
+              return (
+                <p className="mt0 mb2" key={key}>
+                  {item}
+                </p>
+              )
+            })}
+          </div>
           {classe.dependencies.length > 0 && (
             <div className="bt b--moon-gray">
               <div className="mt4 f4 mid-gray">Requisitos</div>

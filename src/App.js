@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import ClassesContainer from './components/classes/ClassesContainer'
 import EvolutionProvider from './components/evolution/EvolutionProvider'
 import 'tachyons'
@@ -12,6 +13,7 @@ class App extends Component {
         <EvolutionProvider>
           <Header />
           <ClassesContainer />
+          <Footer />
         </EvolutionProvider>
       </div>
     )

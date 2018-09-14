@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import allClasses from '../../tracks/allclasses'
+import allClasses from '../../definitions/allclasses.json'
 import withEvolution from '../evolution/withEvolution'
 import ClasseModal from './ClasseModal'
 import EnabledClasse from './EnabledClasse'
@@ -68,6 +68,9 @@ class ClasseSlot extends Component {
 ClasseSlot.propTypes = {
   code: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
+  doneClasses: PropTypes.array.isRequired,
+  doClasse: PropTypes.func.isRequired,
+  undoClasse: PropTypes.func.isRequired,
 }
 
 export default withEvolution(ClasseSlot)
