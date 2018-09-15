@@ -8,7 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import ClassesBox from './ClassesBox'
 import { validateTrack } from '../../definitions/validation'
-import withEvolution from '../evolution/withEvolution'
+import withEvolution from '../providers/withEvolution'
 
 class Track extends Component {
   constructor(props) {
@@ -31,6 +31,7 @@ class Track extends Component {
           className={`flex justify-between items-center bg-moon-gray hover-bg-light-silver pointer f4 fw6 tc pa3 mb1 ${
             colors[0]
           }`}
+          style={{ height: '3rem' }}
           onClick={this.handleClick}
         >
           <span />

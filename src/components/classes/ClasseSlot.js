@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import allClasses from '../../definitions/allclasses.json'
-import withEvolution from '../evolution/withEvolution'
+import withEvolution from '../providers/withEvolution'
 import ClasseModal from './ClasseModal'
 import EnabledClasse from './EnabledClasse'
 import DisabledClasse from './DisabledClasse'

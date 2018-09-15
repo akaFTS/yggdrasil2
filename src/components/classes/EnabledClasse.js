@@ -16,7 +16,7 @@ const EnabledClasse = ({ classe, color, onClick }) => {
         </span>
         <img
           className="mv1"
-          src={`/src/assets/skills/${classe.code}.gif`}
+          src={`skills/${classe.code}.gif`}
           style={{ height: '2.5rem' }}
         />
         <span className={`fw7 f5 ${color}`}>{classe.code}</span>

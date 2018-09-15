@@ -10,11 +10,17 @@ class EvolutionProvider extends Component {
       doneClasses: JSON.parse(localStorage.getItem('doneClasses')) || [],
       doClasse: this.doClasse,
       undoClasse: this.undoClasse,
+      clearDone: this.clearDone,
     }
   }
 
   componentDidUpdate() {
     localStorage.setItem('doneClasses', JSON.stringify(this.state.doneClasses))
+  }
+
+  clearDone = () => {
+    this.setState({ doneClasses: [] })
+    localStorage.clear()
   }
 
   doClasse = classe => {

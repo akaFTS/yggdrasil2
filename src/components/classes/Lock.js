@@ -8,7 +8,7 @@ const Lock = () => {
       className="fa-layers absolute tc"
       style={{ fontSize: '2rem', top: '0.2rem' }}
     >
-      <FontAwesomeIcon icon={faLock} className="silver" />
+      <FontAwesomeIcon icon={faLock} className="gray" />
       <div
         className="fa-layers-text bg-light-gray"
         style={{

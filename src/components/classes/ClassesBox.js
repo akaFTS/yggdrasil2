@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ClasseSlot from './ClasseSlot'
-import withEvolution from '../evolution/withEvolution'
+import withEvolution from '../providers/withEvolution'
 import BoxTypes from '../../definitions/BoxTypes'
 import { validateBox } from '../../definitions/validation'
 

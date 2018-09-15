@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Footer = () => {
   return (
-    <footer className="bg-light-gray flex justify-center items-center ph2 pt3 pb2 f6 mid-gray">
+    <footer className="bg-light-gray flex justify-center items-center ph2 pv2 f6 mid-gray">
       <span>
         by Gustavo Silva (<span className="fw6">@akafts</span>
         ). Imagens são copyright de Ragnarok Online.

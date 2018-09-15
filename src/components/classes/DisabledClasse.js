@@ -21,7 +21,7 @@ const DisabledClasse = ({ classe, locked, onClick }) => {
         >
           <img
             className="h-100"
-            src={`/src/assets/skills/${classe.code}.gif`}
+            src={`skills/${classe.code}.gif`}
             style={{
               filter: 'grayscale(100%) opacity(20%)',
             }}

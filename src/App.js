@@ -5,6 +5,7 @@ import ClassesContainer from './components/classes/ClassesContainer'
 import EvolutionProvider from './components/evolution/EvolutionProvider'
 import 'tachyons'
 import './montserrat.css'
+import Sidebar from './components/sidebar/Sidebar'
 
 class App extends Component {
   render() {
@@ -12,7 +13,10 @@ class App extends Component {
       <div className="montserrat bg-light-gray">
         <EvolutionProvider>
           <Header />
-          <ClassesContainer />
+          <div className="flex flex-column-reverse flex-row-l">
+            <ClassesContainer />
+            <Sidebar />
+          </div>
           <Footer />
         </EvolutionProvider>
       </div>

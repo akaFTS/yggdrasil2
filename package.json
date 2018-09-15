@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "build": "nwb build-react-app",
+    "build:linux": "nwb build-react-app --webpack.publicPath='/~gustavohfts/yggdrasil2/'",
     "clean": "nwb clean-app",
     "start": "nwb serve-react-app",
     "test": "nwb test-react",

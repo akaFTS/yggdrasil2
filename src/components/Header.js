@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header className="bg-light-gray flex justify-center items-center ph2 pt3 pb4">
       <img
-        src="src/assets/poring.gif"
+        src="poring.gif"
         className="flex-none mr4"
         style={{ height: '3rem' }}
       />
