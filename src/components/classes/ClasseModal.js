@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import Modal from 'react-responsive-modal'
 import Switch from 'react-ios-switch'
 import ClasseSlot from './ClasseSlot'
+import Button from '../Button'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 class ClasseModal extends Component {
   constructor(props) {
@@ -16,27 +18,31 @@ class ClasseModal extends Component {
       color,
       isOpen,
       isClasseDone,
-      handleCloseModal,
-      handleToggleDone,
+      onCloseModal,
+      onToggleDone,
+      onClasseRemoved,
     } = this.props
 
     return (
       <Modal
         center
         open={isOpen}
-        onClose={handleCloseModal}
+        onClose={onCloseModal}
         classNames={{ modal: 'br4 w-100 w-70-l' }}
       >
         <div className="montserrat">
           <div className="flex items-center mb4">
             <img
               className="mr2"
-              src={`/src/assets/skills/${classe.code}.gif`}
+              src={`skills/${classe.code}.gif`}
+              onError={e => {
+                e.target.src = 'skills/custom.gif'
+              }}
               style={{ height: '2.5rem' }}
             />
             <div>
               <div className={`f4 fw5 ${color}`}>{classe.name}</div>
-              <div className="f4 fw6">{classe.code}</div>
+              <div className="f4 fw6 ttu">{classe.code}</div>
             </div>
           </div>
           <div className="f4 mid-gray mb4">
@@ -47,19 +53,30 @@ class ClasseModal extends Component {
           <div className="mb4 flex items-center">
             <Switch
               checked={isClasseDone}
-              onChange={handleToggleDone}
+              onChange={onToggleDone}
               onColor="#449d48"
             />
             <span className="f4 ml2 fw5 mid-gray">Feito</span>
           </div>
           <div className="bt b--moon-gray pv4 lh-title">
-            {classe.summary.split('\n').map((item, key) => {
-              return (
-                <p className="mt0 mb2" key={key}>
-                  {item}
-                </p>
-              )
-            })}
+            {classe.custom ? (
+              <div className="w-100 w-50-l center">
+                <Button
+                  variation="danger"
+                  text="Remover disciplina"
+                  onClick={onClasseRemoved}
+                  icon={faTrash}
+                />
+              </div>
+            ) : (
+              classe.summary.split('\n').map((item, key) => {
+                return (
+                  <p className="mt0 mb2" key={key}>
+                    {item}
+                  </p>
+                )
+              })
+            )}
           </div>
           {classe.dependencies.length > 0 && (
             <div className="bt b--moon-gray">
@@ -82,8 +99,9 @@ ClasseModal.propTypes = {
   color: PropTypes.string.isRequired,
   isOpen: PropTypes.bool.isRequired,
   isClasseDone: PropTypes.bool.isRequired,
-  handleCloseModal: PropTypes.func.isRequired,
-  handleToggleDone: PropTypes.func.isRequired,
+  onCloseModal: PropTypes.func.isRequired,
+  onToggleDone: PropTypes.func.isRequired,
+  onClasseRemoved: PropTypes.func.isRequired,
 }
 
 export default ClasseModal

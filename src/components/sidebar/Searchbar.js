@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons'
-import allClasses from '../../definitions/allclasses.json'
 import ClasseSlot from '../classes/ClasseSlot'
+import withClasses from '../providers/withClasses'
 
 class Searchbar extends Component {
   constructor(props) {
@@ -14,14 +15,15 @@ class Searchbar extends Component {
   }
 
   handleChange = e => {
+    const { allClasses } = this.props
     const searchQuery = e.target.value
     const searchResults =
       searchQuery.trim() !== ''
         ? allClasses
             .filter(
               classe =>
-                classe.code.includes(searchQuery) ||
-                classe.name.includes(searchQuery)
+                classe.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                classe.name.toLowerCase().includes(searchQuery.toLowerCase())
             )
             .map(classe => classe.code)
             .slice(0, 6)
@@ -76,4 +78,8 @@ class Searchbar extends Component {
   }
 }
 
-export default Searchbar
+Searchbar.propTypes = {
+  allClasses: PropTypes.array.isRequired,
+}
+
+export default withClasses(Searchbar)

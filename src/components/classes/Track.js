@@ -9,6 +9,7 @@ import {
 import ClassesBox from './ClassesBox'
 import { validateTrack } from '../../definitions/validation'
 import withEvolution from '../providers/withEvolution'
+import withClasses from '../providers/withClasses'
 
 class Track extends Component {
   constructor(props) {
@@ -22,8 +23,8 @@ class Track extends Component {
 
   render() {
     const { isOpen } = this.state
-    const { title, rules, colors, doneClasses } = this.props
-    const isTrackComplete = validateTrack(rules, doneClasses)
+    const { title, rules, colors, doneClasses, customBoxClasses } = this.props
+    const isTrackComplete = validateTrack(rules, doneClasses, customBoxClasses)
 
     return (
       <article>
@@ -88,6 +89,7 @@ Track.propTypes = {
   colors: PropTypes.array.isRequired,
   shoudStartOpen: PropTypes.bool,
   doneClasses: PropTypes.array.isRequired,
+  customBoxClasses: PropTypes.object.isRequired,
 }
 
-export default withEvolution(Track)
+export default withClasses(withEvolution(Track))

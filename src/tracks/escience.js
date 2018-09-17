@@ -10,6 +10,14 @@ export default {
         classes: ['MAC0317', 'MAC0426', 'MAC0431', 'MAC0460', 'MAE0221'],
         type: BoxTypes.COMPLETE_ALL,
       },
+      {
+        title: 'Área de Aplicação',
+        classes: [],
+        type: BoxTypes.COMPLETE_SOME,
+        minimum: 2,
+        addable: true,
+        addingId: 'escienceArea',
+      },
     ],
     right: [
       {

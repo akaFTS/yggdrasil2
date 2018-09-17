@@ -22,13 +22,16 @@ const DisabledClasse = ({ classe, locked, onClick }) => {
           <img
             className="h-100"
             src={`skills/${classe.code}.gif`}
+            onError={e => {
+              e.target.src = 'skills/custom.gif'
+            }}
             style={{
               filter: 'grayscale(100%) opacity(20%)',
             }}
           />
           {locked && <Lock />}
         </div>
-        <span className={`fw7 f5 light-silver`}>{classe.code}</span>
+        <span className={`fw7 f5 light-silver ttu`}>{classe.code}</span>
       </div>
     </div>
   )

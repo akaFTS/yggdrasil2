@@ -5,6 +5,7 @@ export default {
     left: [
       {
         title: 'Obrigatórias',
+        mandatory: true,
         classes: [
           'MAC0101',
           'MAC0105',
@@ -53,6 +54,24 @@ export default {
         ],
         type: BoxTypes.COMPLETE_SOME,
         minimum: 1,
+        addable: true,
+        addingId: 'ciencias',
+      },
+      {
+        title: 'Outras Optativas',
+        classes: [
+          'MAC0213',
+          'MAC0214',
+          'MAC0215',
+          'MAC0335',
+          'MAC0337',
+          'MAC0417',
+          'MAC0420',
+          'MAC0430',
+        ],
+        type: BoxTypes.FREE,
+        addable: true,
+        addingId: 'others',
       },
     ],
   },

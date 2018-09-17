@@ -1,7 +1,12 @@
 import BoxTypes from './BoxTypes'
 
-export function validateBox(box, doneClasses) {
-  const completedClasses = box.classes.reduce(
+export function validateBox(box, doneClasses, customBoxClasses) {
+  const boxClasses =
+    box.addable && customBoxClasses[box.addingId]
+      ? [...box.classes, ...customBoxClasses[box.addingId]]
+      : box.classes
+
+  const completedClasses = boxClasses.reduce(
     (acc, cur) => (doneClasses.includes(cur) ? acc + 1 : acc),
     0
   )
@@ -13,11 +18,11 @@ export function validateBox(box, doneClasses) {
       : false
 }
 
-export function validateTrack(track, doneClasses) {
+export function validateTrack(track, doneClasses, customBoxClasses) {
   return track.validate
     ? track.validate(track.boxes, doneClasses)
     : [...track.boxes.left, ...track.boxes.right].reduce(
-        (acc, cur) => acc && validateBox(cur, doneClasses),
+        (acc, cur) => acc && validateBox(cur, doneClasses, customBoxClasses),
         true
       )
 }

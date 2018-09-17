@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import allClasses from '../../definitions/allclasses.json'
 import withEvolution from '../providers/withEvolution'
+import withClasses from '../providers/withClasses'
 import ClasseModal from './ClasseModal'
 import EnabledClasse from './EnabledClasse'
 import DisabledClasse from './DisabledClasse'
@@ -27,8 +27,15 @@ class ClasseSlot extends Component {
     done ? doClasse(code) : undoClasse(code)
   }
 
+  removeClasse = () => {
+    const { removeClasse, undoClasse, code } = this.props
+    removeClasse(code)
+    undoClasse(code)
+    this.setState({ isModalOpen: false })
+  }
+
   render() {
-    const { code, color, doneClasses } = this.props
+    const { code, color, doneClasses, allClasses } = this.props
     const { isModalOpen } = this.state
     const isClasseDone = doneClasses.some(classe => classe === code)
     const classe = allClasses.find(classe => classe.code === code)
@@ -57,8 +64,9 @@ class ClasseSlot extends Component {
           color={color}
           isOpen={isModalOpen}
           isClasseDone={isClasseDone}
-          handleCloseModal={this.handleCloseModal}
-          handleToggleDone={this.handleToggleDone}
+          onCloseModal={this.handleCloseModal}
+          onToggleDone={this.handleToggleDone}
+          onClasseRemoved={this.removeClasse}
         />
       </React.Fragment>
     )
@@ -71,6 +79,7 @@ ClasseSlot.propTypes = {
   doneClasses: PropTypes.array.isRequired,
   doClasse: PropTypes.func.isRequired,
   undoClasse: PropTypes.func.isRequired,
+  allClasses: PropTypes.array.isRequired,
 }
 
-export default withEvolution(ClasseSlot)
+export default withClasses(withEvolution(ClasseSlot))
