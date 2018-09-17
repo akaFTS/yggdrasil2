@@ -5,6 +5,7 @@ import Switch from 'react-ios-switch'
 import ClasseSlot from './ClasseSlot'
 import Button from '../Button'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import ElectiveToggle from './ElectiveToggle'
 
 class ClasseModal extends Component {
   constructor(props) {
@@ -50,13 +51,16 @@ class ClasseModal extends Component {
             <span className={`fw6 ${color} mh1`}>{classe.credits}</span>+
             <span className="fw6 ml1">{classe.wcredits}</span>
           </div>
-          <div className="mb4 flex items-center">
-            <Switch
-              checked={isClasseDone}
-              onChange={onToggleDone}
-              onColor="#449d48"
-            />
-            <span className="f4 ml2 fw5 mid-gray">Feito</span>
+          <div className="mb4 flex-l justify-between">
+            <div className="mb4 mb0-l flex items-center">
+              <Switch
+                checked={isClasseDone}
+                onChange={onToggleDone}
+                onColor="#449d48"
+              />
+              <span className="f4 ml2 fw5 mid-gray">Feito</span>
+            </div>
+            <ElectiveToggle code={classe.code} />
           </div>
           <div className="bt b--moon-gray pv4 lh-title">
             {classe.custom ? (
