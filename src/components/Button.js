@@ -37,7 +37,7 @@ class Button extends Component {
         onMouseEnter={this.startHovering}
         onMouseLeave={this.endHovering}
       >
-        <FontAwesomeIcon icon={icon} className="mr2" />
+        {icon && <FontAwesomeIcon icon={icon} className="mr2" />}
         <span>{text}</span>
       </button>
     )
@@ -45,7 +45,7 @@ class Button extends Component {
 }
 
 Button.propTypes = {
-  icon: PropTypes.any.isRequired,
+  icon: PropTypes.any,
   onClick: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
   variation: PropTypes.string,

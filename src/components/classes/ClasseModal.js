@@ -60,7 +60,7 @@ class ClasseModal extends Component {
               />
               <span className="f4 ml2 fw5 mid-gray">Feito</span>
             </div>
-            <ElectiveToggle code={classe.code} />
+            <ElectiveToggle code={classe.code} color={color} />
           </div>
           <div className="bt b--moon-gray pv4 lh-title">
             {classe.custom ? (

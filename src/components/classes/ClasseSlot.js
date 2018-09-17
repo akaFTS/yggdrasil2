@@ -35,7 +35,7 @@ class ClasseSlot extends Component {
   }
 
   render() {
-    const { code, color, doneClasses, allClasses } = this.props
+    const { code, color, doneClasses, allClasses, overrideClick } = this.props
     const { isModalOpen } = this.state
     const isClasseDone = doneClasses.some(classe => classe === code)
     const classe = allClasses.find(classe => classe.code === code)
@@ -50,7 +50,7 @@ class ClasseSlot extends Component {
           <EnabledClasse
             classe={classe}
             color={color}
-            onClick={this.openModal}
+            onClick={overrideClick || this.openModal}
           />
         ) : (
           <DisabledClasse
@@ -80,6 +80,7 @@ ClasseSlot.propTypes = {
   doClasse: PropTypes.func.isRequired,
   undoClasse: PropTypes.func.isRequired,
   allClasses: PropTypes.array.isRequired,
+  overrideClick: PropTypes.func,
 }
 
 export default withClasses(withEvolution(ClasseSlot))

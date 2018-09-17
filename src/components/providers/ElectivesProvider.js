@@ -44,8 +44,6 @@ class ElectivesProvider extends Component {
     const { children } = this.props
     const ctx = { ...this.state, mandatoryClasses }
 
-    console.log(ctx)
-
     return (
       <ElectivesContext.Provider value={ctx}>
         {children}

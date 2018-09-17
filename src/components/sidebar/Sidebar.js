@@ -6,6 +6,7 @@ import withEvolution from '../providers/withEvolution'
 import withClasses from '../providers/withClasses'
 import withElectives from '../providers/withElectives'
 import Button from '../Button'
+import ElectivesManager from './ElectivesManager'
 
 class Sidebar extends Component {
   clearCaches = () => {
@@ -20,7 +21,15 @@ class Sidebar extends Component {
       <aside className="bl b--silver bg-white w-100 w-25-l mb1-l flex-none">
         <Searchbar />
         <div className="mv4 mh3">
-          <Button text="Limpar" icon={faUndoAlt} onClick={this.clearCaches} />
+          <ElectivesManager />
+        </div>
+        <div className="mv4 mh3">
+          <Button
+            variation="danger"
+            text="Limpar"
+            icon={faUndoAlt}
+            onClick={this.clearCaches}
+          />
         </div>
       </aside>
     )
