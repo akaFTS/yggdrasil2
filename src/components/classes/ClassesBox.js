@@ -47,7 +47,7 @@ const ClassesBox = ({
           {box.addable && <ClasseAdder addingId={box.addingId} />}
         </main>
       </article>
-      <div className={`pv2 ${secondaryColor} br--bottom br4 w-90 mh-auto`} />
+      <div className={`pv2 ${secondaryColor} br--bottom br4 w-90`} />
     </div>
   )
 }

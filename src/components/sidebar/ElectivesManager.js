@@ -50,7 +50,7 @@ class ClasseAdder extends Component {
               Clique em uma matéria para alterná-la entre optativa eletiva e
               livre.
             </div>
-            <div className="br4 ba b--moon-gray mb3">
+            <div className="br4 ba b--moon-gray">
               <header className="fw6 f5 pa3 near-black">Eletivas</header>
               <main className="pa3 pt0 flex flex-wrap">
                 {doneElectives.map(code => (
@@ -63,8 +63,9 @@ class ClasseAdder extends Component {
                 ))}
               </main>
             </div>
+            <div className="pv2 bg-moon-gray br--bottom br4 w-90 center mb4" />
             <div className="br4 ba b--moon-gray">
-              <header className="fw6 f5 pa3 near-black">Livre</header>
+              <header className="fw6 f5 pa3 near-black">Livres</header>
               <main className="pa3 pt0 flex flex-wrap">
                 {freeElectives.map(code => (
                   <ClasseSlot
@@ -76,6 +77,7 @@ class ClasseAdder extends Component {
                 ))}
               </main>
             </div>
+            <div className="pv2 bg-moon-gray br--bottom br4 w-90 center mb4" />
           </div>
         </Modal>
       </div>
