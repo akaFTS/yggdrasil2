@@ -34,6 +34,9 @@ class ClasseAdder extends Component {
       classe =>
         !mandatoryClasses.includes(classe) && !freeElectives.includes(classe)
     )
+    const doneFreeElectives = doneClasses.filter(classe =>
+      freeElectives.includes(classe)
+    )
 
     return (
       <div className="pa1">
@@ -67,7 +70,7 @@ class ClasseAdder extends Component {
             <div className="br4 ba b--moon-gray">
               <header className="fw6 f5 pa3 near-black">Livres</header>
               <main className="pa3 pt0 flex flex-wrap">
-                {freeElectives.map(code => (
+                {doneFreeElectives.map(code => (
                   <ClasseSlot
                     key={code}
                     code={code}

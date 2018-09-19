@@ -1,4 +1,4 @@
-import BoxTypes from '../definitions/BoxTypes'
+import { BoxTypes } from '../definitions/constants'
 
 export default {
   boxes: {

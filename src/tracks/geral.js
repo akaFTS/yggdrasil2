@@ -1,11 +1,11 @@
-import BoxTypes from '../definitions/BoxTypes'
+import { BoxTypes, ClasseTypes } from '../definitions/constants'
 
 export default {
   boxes: {
     left: [
       {
         title: 'Obrigatórias',
-        mandatory: true,
+        classeType: ClasseTypes.MANDATORY,
         classes: [
           'MAC0101',
           'MAC0105',
@@ -37,12 +37,14 @@ export default {
     right: [
       {
         title: 'Optativa de Estatística',
+        classeType: ClasseTypes.STATISTICS,
         classes: ['MAE0217', 'MAE0221', 'MAE0228'],
         type: BoxTypes.COMPLETE_SOME,
         minimum: 1,
       },
       {
         title: 'Optativa de Ciências',
+        classeType: ClasseTypes.SCIENCE,
         classes: [
           '4302112',
           '4302401',

@@ -1,4 +1,4 @@
-import BoxTypes from './BoxTypes'
+import { BoxTypes } from './constants'
 
 export function validateBox(box, doneClasses, customBoxClasses) {
   const boxClasses =

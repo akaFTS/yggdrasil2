@@ -13,18 +13,18 @@ class App extends Component {
   render() {
     return (
       <div className="montserrat bg-light-gray">
-        <ElectivesProvider>
-          <EvolutionProvider>
-            <ClassesProvider>
+        <EvolutionProvider>
+          <ClassesProvider>
+            <ElectivesProvider>
               <Header />
               <div className="flex flex-column-reverse flex-row-l">
                 <ClassesContainer />
                 <Sidebar />
               </div>
               <Footer />
-            </ClassesProvider>
-          </EvolutionProvider>
-        </ElectivesProvider>
+            </ElectivesProvider>
+          </ClassesProvider>
+        </EvolutionProvider>
       </div>
     )
   }

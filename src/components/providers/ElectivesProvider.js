@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import geral from '../../tracks/geral'
+import { ClasseTypes } from '../../definitions/constants'
+import withClasses from './withClasses'
 
 export const ElectivesContext = React.createContext()
 
@@ -37,12 +39,31 @@ class ElectivesProvider extends Component {
   }
 
   render() {
-    const mandatoryClasses = [...geral.boxes.left, ...geral.boxes.right].find(
-      box => box.mandatory
+    const { children, customBoxClasses } = this.props
+    const allGeneral = [...geral.boxes.left, ...geral.boxes.right]
+    const mandatoryClasses = allGeneral.find(
+      box => box.classeType === ClasseTypes.MANDATORY
     ).classes
 
-    const { children } = this.props
-    const ctx = { ...this.state, mandatoryClasses }
+    const statisticsClasses = allGeneral.find(
+      box => box.classeType === ClasseTypes.STATISTICS
+    ).classes
+
+    const scienceBox = allGeneral.find(
+      box => box.classeType === ClasseTypes.SCIENCE
+    )
+
+    const scienceClasses = [
+      ...scienceBox.classes,
+      ...customBoxClasses[scienceBox.addingId],
+    ]
+
+    const ctx = {
+      ...this.state,
+      mandatoryClasses,
+      statisticsClasses,
+      scienceClasses,
+    }
 
     return (
       <ElectivesContext.Provider value={ctx}>
@@ -54,6 +75,7 @@ class ElectivesProvider extends Component {
 
 ElectivesProvider.propTypes = {
   children: PropTypes.node.isRequired,
+  customBoxClasses: PropTypes.object.isRequired,
 }
 
-export default ElectivesProvider
+export default withClasses(ElectivesProvider)

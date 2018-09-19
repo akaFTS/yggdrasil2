@@ -27,6 +27,7 @@
     "iconv-lite": "^0.4.24",
     "phantom": "^6.0.3",
     "react": "^16.5.0",
+    "react-circular-progressbar": "^1.0.0",
     "react-dom": "^16.5.0",
     "react-ios-switch": "^0.1.19",
     "react-responsive-modal": "^3.3.0",

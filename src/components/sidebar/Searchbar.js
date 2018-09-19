@@ -29,8 +29,6 @@ class Searchbar extends Component {
             .slice(0, 6)
         : []
 
-    console.log(searchResults)
-
     this.setState({ searchQuery, searchResults })
   }
 
