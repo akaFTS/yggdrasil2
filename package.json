@@ -1,16 +1,17 @@
 {
   "name": "yggdrasil",
-  "version": "0.1.0",
-  "description": "Describe yggdrasil here",
+  "version": "0.9.0",
+  "homepage": "http://akafts.github.io/yggdrasil2",
+  "description": "Gerenciador do BCC",
   "private": true,
   "scripts": {
     "build": "nwb build-react-app",
     "build:linux": "nwb build-react-app --webpack.publicPath='/~gustavohfts/yggdrasil2/'",
     "clean": "nwb clean-app",
     "start": "nwb serve-react-app",
-    "test": "nwb test-react",
-    "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server"
+    "crawler": "node jupiterCrawl.js",
+    "predeploy": "nwb build-react-app --webpack.publicPath='/yggdrasil2/'",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.4",
@@ -34,6 +35,7 @@
     "tachyons": "^4.11.1"
   },
   "devDependencies": {
+    "gh-pages": "^2.0.0",
     "nwb": "0.23.x"
   },
   "author": "",

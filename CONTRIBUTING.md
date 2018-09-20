@@ -1,27 +1,29 @@
-## Prerequisites
+## Como contribuir
 
-[Node.js](http://nodejs.org/) >= 6 must be installed.
+### Rodando localmente
 
-## Installation
+Basta clonar o repositório, instalar as dependências com `npm install` e depois ligar o servidor com `npm start`. Naturalmente você precisa ter o Node.js instalado para que esses comandos funcionem. Depois disso, basta entrar em `localhost:3000` no seu browser.
 
-- Running `npm install` in the app's root directory will install everything you need for development.
+### Modificar trilhas
 
-## Development Server
+Caso alguma matéria seja incluída ou retirada de uma trilha, ou mude algum outro requisito (tipo número mínimo de matérias de um bloco), basta acessar o arquivo de configuração da trilha desejada dentro da pasta `/tracks` e fazer as mudanças desejadas. As configurações são bastante intuitivas.
 
-- `npm start` will run the app's development server at [http://localhost:3000](http://localhost:3000) with hot module reloading.
+Após as mudanças, é necessário refazer o deploy do projeto.
 
-## Running Tests
+### Adicionar matérias novas
 
-- `npm test` will run the tests once.
+Caso alguma matéria nova seja adicionada ao sistema, após adicioná-la no arquivo da trilha relacionada, é preciso rodar de novo o crawler que busca as informações dela no Jupiter (mais detalhes abaixo). Além disso, ela precisa de um ícone, então você deve fuçar em sites de Ragnarok, procurar as listas de habilidades de cada classe, encontrar algum ícone de habilidade que ache legal e salvar na pasta `/public/skills` com o nome sendo o código da matéria e a extensão `.gif`.
 
-- `npm run test:coverage` will run the tests and produce a coverage report in `coverage/`.
+### Crawler
 
-- `npm run test:watch` will run the tests on every change.
+O arquivo 'jupiterCrawl.js`é um crawler que irá carregar todas as matérias que fazem parte das trilhas (inclusive as obrigatórias) e buscará informações sobre elas no Jupiter: nome, créditos, ementa e pré-requisitos. Essas informações são salvas em um arquivo`allclasses.json`que é usado pelo sistema. Esse crawler deve ser rodado (`npm run crawler`) sempre que uma nova matéria é adicionada ao Yggdrasil, e também idealmente a cada começo de semestre para pegar updates que acontecem nas matérias ao longo do ano.
 
-## Building
+O crawler demora um pouco pra rodar e gasta bastante CPU. Após usá-lo, é necessário refazer o deploy do projeto.
 
-- `npm run build` creates a production build by default.
+### Deploy
 
-   To create a development build, set the `NODE_ENV` environment variable to `development` while running this command.
+Para fazer o deploy, basta rodar `npm run deploy` e o sistema será automaticamente buildado e enviado para o GitHub Pages.
 
-- `npm run clean` will delete built resources.
+### Versionando
+
+Ao fazer qualquer modificação nas trilhas ou matérias, abra um PR (pull request) aqui no Yggdrasil para manter a codebase sempre atualizada.

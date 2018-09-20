@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
-import withEvolution from '../providers/withEvolution'
 import withClasses from '../providers/withClasses'
 import teoria from '../../tracks/teoria'
 import sistemas from '../../tracks/sistemas'
@@ -63,4 +62,4 @@ TrackStatus.propTypes = {
   customBoxClasses: PropTypes.object.isRequired,
 }
 
-export default withClasses(withEvolution(TrackStatus))
+export default withClasses(TrackStatus)

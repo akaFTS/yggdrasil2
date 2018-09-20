@@ -29,8 +29,8 @@ const SpecialOptatives = ({ statisticsCompleted, scienceCompleted }) => {
 }
 
 SpecialOptatives.propTypes = {
-  statisticsCompleted: PropTypes.bool.isRequired,
-  scienceCompleted: PropTypes.bool.isRequired,
+  statisticsCompleted: PropTypes.bool,
+  scienceCompleted: PropTypes.bool,
 }
 
 export default SpecialOptatives

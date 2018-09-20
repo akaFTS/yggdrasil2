@@ -2,11 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Modal from 'react-responsive-modal'
 import withEvolution from '../providers/withEvolution'
-import withElectives from '../providers/withElectives'
 import Button from '../Button'
 import ClasseSlot from '../classes/ClasseSlot'
 
-class ElectivesManager extends Component {
+class ReportManager extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -88,11 +87,8 @@ class ElectivesManager extends Component {
   }
 }
 
-ElectivesManager.propTypes = {
-  freeElectives: PropTypes.array.isRequired,
-  toggleElective: PropTypes.func.isRequired,
-  mandatoryClasses: PropTypes.array.isRequired,
+ReportManager.propTypes = {
   doneClasses: PropTypes.array.isRequired,
 }
 
-export default withElectives(withEvolution(ElectivesManager))
+export default withEvolution(ReportManager)

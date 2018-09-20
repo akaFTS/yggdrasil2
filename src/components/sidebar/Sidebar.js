@@ -7,7 +7,7 @@ import withClasses from '../providers/withClasses'
 import withElectives from '../providers/withElectives'
 import Button from '../Button'
 import ElectivesManager from './ElectivesManager'
-import CreditsManager from '../credits/CreditsManager'
+import CreditsDash from '../credits/CreditsDash'
 
 class Sidebar extends Component {
   clearCaches = () => {
@@ -22,7 +22,7 @@ class Sidebar extends Component {
       <aside className="bl b--silver bg-white w-100 w-25-l mb1-l flex-none">
         <Searchbar />
         <div className="mv4 mh3">
-          <CreditsManager />
+          <CreditsDash />
         </div>
         <div className="mv4 mh3">
           <ElectivesManager />
