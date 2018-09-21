@@ -1,0 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,600,800&subset=latin-ext);
+.opensans {
+  font-family: 'Open Sans', 'Arial', sans-serif;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: bold;
+  src: url('/fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+/*# sourceMappingURL=app.5dcd0e8c.css.map*/
