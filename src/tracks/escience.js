@@ -2,7 +2,7 @@ import { BoxTypes } from '../definitions/constants'
 
 export default {
   description:
-    'Além de completar os três núcleos, o aluno deverá escolher uma área de aplicação (e.g., Bioinformática, Economia, Administração, Mecatrônica, Imagens Médicas, Engenharia de Software, Música Computacional, Astronomia, Análise Esportiva, etc.) e um orientador, cursar duas matérias nessa área e escrever seu TCC sobre ela.',
+    'Para completar a trilha, o aluno deverá completar os três núcleos. Além disso, é recomendado (mas não obrigatório) que ele escolha uma área de aplicação (e.g., Bioinformática, Economia, Administração, Mecatrônica, Imagens Médicas, Engenharia de Software, Música Computacional, Astronomia, Análise Esportiva, etc.) e curse duas matérias dela, além de fazer seu TCC na área.',
   boxes: {
     left: [
       {
@@ -13,8 +13,7 @@ export default {
       {
         title: 'Área de Aplicação',
         classes: [],
-        type: BoxTypes.COMPLETE_SOME,
-        minimum: 2,
+        type: BoxTypes.FREE,
         addable: true,
         addingId: 'escienceArea',
       },

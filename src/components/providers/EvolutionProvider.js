@@ -8,9 +8,10 @@ class EvolutionProvider extends Component {
     super(props)
     this.state = {
       doneClasses: JSON.parse(localStorage.getItem('doneClasses')) || [],
-      doClasse: this.doClasse,
-      undoClasse: this.undoClasse,
+      toggleDone: this.toggleDone,
       clearDone: this.clearDone,
+      isQuickEditing: false,
+      toggleQuickEdition: this.toggleQuickEdition,
     }
   }
 
@@ -23,17 +24,21 @@ class EvolutionProvider extends Component {
     localStorage.clear()
   }
 
-  doClasse = classe => {
+  toggleQuickEdition = () => {
     this.setState(prevState => ({
-      doneClasses: [...prevState.doneClasses, classe],
+      isQuickEditing: !prevState.isQuickEditing,
     }))
   }
 
-  undoClasse = classe => {
+  toggleDone = classe => {
     const { doneClasses } = this.state
-    this.setState(prevState => ({
-      doneClasses: doneClasses.filter(doneClasse => doneClasse !== classe),
-    }))
+    const newDoneClasses = doneClasses.some(doneClasse => doneClasse === classe)
+      ? doneClasses.filter(doneClasse => doneClasse !== classe)
+      : [...doneClasses, classe]
+
+    this.setState({
+      doneClasses: newDoneClasses,
+    })
   }
 
   render() {

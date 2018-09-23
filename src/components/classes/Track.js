@@ -6,6 +6,7 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons'
 import ClassesBox from './ClassesBox'
+import withEvolution from '../providers/withEvolution'
 
 class Track extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class Track extends Component {
 
   render() {
     const { isOpen } = this.state
-    const { title, rules, colors } = this.props
+    const { title, rules, colors, isQuickEditing } = this.props
 
     return (
       <article>
@@ -37,9 +38,12 @@ class Track extends Component {
           </span>
         </header>
         {isOpen && (
-          <main className="flex-l flex-wrap pt3 ph1 ph2-l">
+          <main
+            className="flex-l flex-wrap pt3 ph1 ph2-l mb1"
+            style={{ backgroundColor: isQuickEditing ? '#D1C4E9' : '' }}
+          >
             {rules.description && (
-              <div className="w-100 ph2 mt3 mb4 tc fw6 mid-gray f5">
+              <div className="w-100 ph2 mt3 mb4 tc fw5 mid-gray f5 lh-copy">
                 {rules.description}
               </div>
             )}
@@ -65,6 +69,7 @@ Track.propTypes = {
   rules: PropTypes.object.isRequired,
   colors: PropTypes.array.isRequired,
   shoudStartOpen: PropTypes.bool,
+  isQuickEditing: PropTypes.bool.isRequired,
 }
 
-export default Track
+export default withEvolution(Track)

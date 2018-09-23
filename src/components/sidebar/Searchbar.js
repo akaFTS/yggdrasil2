@@ -64,7 +64,7 @@ class Searchbar extends Component {
             )}
           </div>
           {searchResults.length > 0 && (
-            <div className="absolute w-100 bg-white shadow-1 br3 br--bottom pa2 flex flex-wrap justify-between">
+            <div className="absolute w-100 z-2 bg-white shadow-1 br3 br--bottom pa2 flex flex-wrap justify-between">
               {searchResults.map(code => (
                 <ClasseSlot key={code} code={code} color="dark-blue" />
               ))}

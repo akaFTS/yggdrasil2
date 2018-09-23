@@ -58,6 +58,8 @@ export default {
         minimum: 1,
         addable: true,
         addingId: 'ciencias',
+        addingInfo:
+          'Para utilizar uma matéria fora da lista como Optativa de Ciências, você deve fazer um requerimento especial. O formulário pode ser encontrado no site do Apoio ao BCC.',
       },
       {
         title: 'Outras Optativas',
@@ -70,6 +72,8 @@ export default {
           'MAC0417',
           'MAC0420',
           'MAC0430',
+          'MAC0446',
+          'MAC0468',
         ],
         type: BoxTypes.FREE,
         addable: true,

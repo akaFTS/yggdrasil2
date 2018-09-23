@@ -18,7 +18,7 @@ const ProgressCircles = ({ mandatory, elective, free }) => {
           }}
         />
       </div>
-      <div className="absolute top-0" style={{ padding: '9.5%' }}>
+      <div className="absolute top-0 z-1" style={{ padding: '9.5%' }}>
         <CircularProgressbar
           percentage={elective}
           initialAnimation={true}
@@ -31,7 +31,7 @@ const ProgressCircles = ({ mandatory, elective, free }) => {
           }}
         />
       </div>
-      <div className="absolute top-0" style={{ padding: '18%' }}>
+      <div className="absolute top-0 z-1" style={{ padding: '18%' }}>
         <CircularProgressbar
           strokeWidth={12}
           percentage={free}

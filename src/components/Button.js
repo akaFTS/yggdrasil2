@@ -20,11 +20,17 @@ class Button extends Component {
     const colors =
       variation === 'danger'
         ? { primary: 'dark-red', secondary: 'washed-red', hover: 'light-red' }
-        : {
-            primary: 'dark-blue',
-            secondary: 'lightest-blue',
-            hover: 'light-blue',
-          }
+        : variation === 'important'
+          ? {
+              primary: 'white',
+              secondary: 'dark-blue',
+              hover: 'navy',
+            }
+          : {
+              primary: 'dark-blue',
+              secondary: 'lightest-blue',
+              hover: 'light-blue',
+            }
 
     return (
       <button

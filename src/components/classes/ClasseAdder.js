@@ -39,7 +39,7 @@ class ClasseAdder extends Component {
 
   addClasse = () => {
     const { name, code, credits, wcredits, isFree } = this.state
-    const { doClasse, addClasse, toggleElective, addingId } = this.props
+    const { toggleDone, addClasse, toggleElective, addingId } = this.props
 
     addClasse(
       {
@@ -50,7 +50,7 @@ class ClasseAdder extends Component {
       },
       addingId
     )
-    doClasse(code)
+    toggleDone(code)
     if (isFree) toggleElective(code)
 
     this.setState({
@@ -64,6 +64,7 @@ class ClasseAdder extends Component {
 
   render() {
     const { isModalOpen, name, code, credits, wcredits, isFree } = this.state
+    const { extraText } = this.props
 
     return (
       <div className="pa1">
@@ -152,6 +153,9 @@ class ClasseAdder extends Component {
               </div>
             </div>
             <Button text="Adicionar" icon={faPlus} onClick={this.addClasse} />
+            {extraText && (
+              <div className="mt4 tj gray f6 lh-copy">{extraText}</div>
+            )}
           </div>
         </Modal>
       </div>
@@ -161,9 +165,10 @@ class ClasseAdder extends Component {
 
 ClasseAdder.propTypes = {
   addingId: PropTypes.string.isRequired,
-  doClasse: PropTypes.func.isRequired,
+  toggleDone: PropTypes.func.isRequired,
   addClasse: PropTypes.func.isRequired,
   toggleElective: PropTypes.func.isRequired,
+  extraText: PropTypes.node,
 }
 
 export default withElectives(withClasses(withEvolution(ClasseAdder)))

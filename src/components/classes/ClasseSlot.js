@@ -14,23 +14,24 @@ class ClasseSlot extends Component {
     }
   }
 
-  openModal = () => {
-    this.setState({ isModalOpen: true })
+  handleClickAction = () => {
+    const { isQuickEditing, toggleDone, code } = this.props
+    isQuickEditing ? toggleDone(code) : this.setState({ isModalOpen: true })
   }
 
   handleCloseModal = () => {
     this.setState({ isModalOpen: false })
   }
 
-  handleToggleDone = done => {
-    const { doClasse, undoClasse, code } = this.props
-    done ? doClasse(code) : undoClasse(code)
+  handleToggleDone = () => {
+    const { toggleDone, code } = this.props
+    toggleDone(code)
   }
 
   removeClasse = () => {
-    const { removeClasse, undoClasse, code } = this.props
+    const { removeClasse, toggleDone, code } = this.props
     removeClasse(code)
-    undoClasse(code)
+    toggleDone(code)
     this.setState({ isModalOpen: false })
   }
 
@@ -50,12 +51,12 @@ class ClasseSlot extends Component {
           <EnabledClasse
             classe={classe}
             color={color}
-            onClick={overrideClick || this.openModal}
+            onClick={overrideClick || this.handleClickAction}
           />
         ) : (
           <DisabledClasse
             classe={classe}
-            onClick={this.openModal}
+            onClick={this.handleClickAction}
             locked={isClasseLocked}
           />
         )}
@@ -77,10 +78,10 @@ ClasseSlot.propTypes = {
   code: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   doneClasses: PropTypes.array.isRequired,
-  doClasse: PropTypes.func.isRequired,
-  undoClasse: PropTypes.func.isRequired,
+  toggleDone: PropTypes.func.isRequired,
   allClasses: PropTypes.array.isRequired,
   overrideClick: PropTypes.func,
+  isQuickEditing: PropTypes.bool.isRequired,
 }
 
 export default withClasses(withEvolution(ClasseSlot))

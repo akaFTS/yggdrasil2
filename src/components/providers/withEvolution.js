@@ -5,13 +5,20 @@ export default function withEvolution(Component) {
   return function EvolutionInjectedComponent(props) {
     return (
       <EvolutionContext.Consumer>
-        {({ doneClasses, doClasse, undoClasse, clearDone }) => (
+        {({
+          doneClasses,
+          toggleDone,
+          clearDone,
+          toggleQuickEdition,
+          isQuickEditing,
+        }) => (
           <Component
             {...props}
             doneClasses={doneClasses}
-            doClasse={doClasse}
-            undoClasse={undoClasse}
+            toggleDone={toggleDone}
             clearDone={clearDone}
+            toggleQuickEdition={toggleQuickEdition}
+            isQuickEditing={isQuickEditing}
           />
         )}
       </EvolutionContext.Consumer>

@@ -5,6 +5,7 @@ import withEvolution from '../providers/withEvolution'
 import TrackStatus from './TrackStatus'
 import CreditsProgress from './CreditsProgress'
 import CreditsManager from './CreditsManager'
+import ReportManager from '../report/ReportManager'
 
 const CreditsDash = ({ doneClasses }) => {
   const doneCopy = [...doneClasses]
@@ -27,13 +28,20 @@ const CreditsDash = ({ doneClasses }) => {
             />
             <div className="mt4 mt0-m mt4-l fw5">
               <SpecialOptatives
-                scienceCompleted={scienceOptative}
-                statisticsCompleted={statisticsOptative}
+                scienceOptative={scienceOptative}
+                statisticsOptative={statisticsOptative}
               />
             </div>
             <div className="mt4 mt0-m mt4-l fw5">
               <TrackStatus doneClasses={doneCopy} />
             </div>
+            {mandatoryCredits >= 111 &&
+              electiveCredits >= 52 &&
+              freeCredits >= 24 && (
+                <div className="mt4 w-100">
+                  <ReportManager />
+                </div>
+              )}
           </div>
         </div>
       )}

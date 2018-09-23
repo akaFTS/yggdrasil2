@@ -8,6 +8,7 @@ import withElectives from '../providers/withElectives'
 import Button from '../Button'
 import ElectivesManager from './ElectivesManager'
 import CreditsDash from '../credits/CreditsDash'
+import Switch from 'react-ios-switch'
 
 class Sidebar extends Component {
   clearCaches = () => {
@@ -18,6 +19,7 @@ class Sidebar extends Component {
   }
 
   render() {
+    const { isQuickEditing, toggleQuickEdition } = this.props
     return (
       <aside className="bl b--silver bg-white w-100 w-25-l mb1-l flex-none">
         <Searchbar />
@@ -35,6 +37,16 @@ class Sidebar extends Component {
             onClick={this.clearCaches}
           />
         </div>
+        <div className="mv4 mh3">
+          <div className="mb4 mb0-l flex items-center">
+            <Switch
+              checked={isQuickEditing}
+              onChange={toggleQuickEdition}
+              onColor="#8a229b"
+            />
+            <span className="f5 ml2 fw5 mid-gray">Edição Rápida</span>
+          </div>
+        </div>
       </aside>
     )
   }
@@ -44,6 +56,8 @@ Sidebar.propTypes = {
   clearDone: PropTypes.func.isRequired,
   clearCustom: PropTypes.func.isRequired,
   clearElectives: PropTypes.func.isRequired,
+  isQuickEditing: PropTypes.bool.isRequired,
+  toggleQuickEdition: PropTypes.func.isRequired,
 }
 
 export default withElectives(withClasses(withEvolution(Sidebar)))
