@@ -9,11 +9,13 @@ import Button from '../Button'
 import ElectivesManager from './ElectivesManager'
 import CreditsDash from '../credits/CreditsDash'
 import Switch from 'react-ios-switch'
+import ScheduleManager from './ScheduleManager'
+import IOManager from './IOManager'
 
 class Sidebar extends Component {
   clearCaches = () => {
-    const { clearDone, clearCustom, clearElectives } = this.props
-    clearDone()
+    const { clearEvolution, clearCustom, clearElectives } = this.props
+    clearEvolution()
     clearCustom()
     clearElectives()
   }
@@ -27,6 +29,9 @@ class Sidebar extends Component {
           <CreditsDash />
         </div>
         <div className="mv4 mh3">
+          <ScheduleManager />
+        </div>
+        <div className="mv4 mh3">
           <ElectivesManager />
         </div>
         <div className="mv4 mh3">
@@ -36,6 +41,9 @@ class Sidebar extends Component {
             icon={faUndoAlt}
             onClick={this.clearCaches}
           />
+        </div>
+        <div className="mv4 mh3">
+          <IOManager />
         </div>
         <div className="mv4 mh3">
           <div className="mb4 mb0-l flex items-center">
@@ -53,7 +61,7 @@ class Sidebar extends Component {
 }
 
 Sidebar.propTypes = {
-  clearDone: PropTypes.func.isRequired,
+  clearEvolution: PropTypes.func.isRequired,
   clearCustom: PropTypes.func.isRequired,
   clearElectives: PropTypes.func.isRequired,
   isQuickEditing: PropTypes.bool.isRequired,

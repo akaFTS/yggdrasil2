@@ -12,6 +12,8 @@ export default function withElectives(Component) {
           statisticsClasses,
           scienceClasses,
           clearElectives,
+          importElectives,
+          exportElectives,
         }) => (
           <Component
             {...props}
@@ -21,6 +23,8 @@ export default function withElectives(Component) {
             statisticsClasses={statisticsClasses}
             scienceClasses={scienceClasses}
             clearElectives={clearElectives}
+            importElectives={importElectives}
+            exportElectives={exportElectives}
           />
         )}
       </ElectivesContext.Consumer>

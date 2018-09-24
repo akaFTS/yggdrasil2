@@ -8,6 +8,7 @@ import ElectivesProvider from './components/providers/ElectivesProvider'
 import Sidebar from './components/sidebar/Sidebar'
 import 'tachyons'
 import './montserrat.css'
+import './extended-colors.css'
 
 class App extends Component {
   render() {

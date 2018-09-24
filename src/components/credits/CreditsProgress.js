@@ -13,7 +13,17 @@ class CreditsProgress extends Component {
   }
 
   render() {
-    const { mandatoryCredits, electiveCredits, freeCredits } = this.props
+    const {
+      mandatoryCredits,
+      electiveCredits,
+      freeCredits,
+      colors,
+    } = this.props
+
+    const primaryColor = colors ? colors.primary : 'dark-blue'
+    const secondaryColor = colors ? colors.secondary : 'blue'
+    const tertiaryColor = colors ? colors.tertiary : 'light-blue'
+
     return (
       <div className="flex items-center">
         <div className="w-40 w4-m w-40-l mr3">
@@ -21,23 +31,24 @@ class CreditsProgress extends Component {
             mandatory={this.calcPercentage(mandatoryCredits, 111)}
             elective={this.calcPercentage(electiveCredits, 52)}
             free={this.calcPercentage(freeCredits, 24)}
+            palette={colors && colors.secondary}
           />
         </div>
         <div className="flex flex-column">
-          <span className="fw6 dark-blue">Obrigatórias</span>
+          <span className={`fw6 ${primaryColor}`}>Obrigatórias</span>
           <span className="fw5 silver mb2">
             <span className="mr1">{mandatoryCredits}</span>/
-            <span className="dark-blue ml1">111</span>
+            <span className={`${primaryColor} ml1`}>111</span>
           </span>
-          <span className="fw6 blue">Eletivas</span>
+          <span className={`fw6 ${secondaryColor}`}>Eletivas</span>
           <span className="fw5 silver mb2">
             <span className="mr1">{electiveCredits}</span>/
-            <span className="blue ml1">52</span>
+            <span className={`${secondaryColor} ml1`}>52</span>
           </span>
-          <span className="fw6 light-blue">Livres</span>
+          <span className={`fw6 ${tertiaryColor}`}>Livres</span>
           <span className="fw5 silver mb2">
             <span className="mr1">{freeCredits}</span>/
-            <span className="light-blue ml1">24</span>
+            <span className={`${tertiaryColor} ml1`}>24</span>
           </span>
         </div>
       </div>
@@ -48,6 +59,7 @@ CreditsProgress.propTypes = {
   mandatoryCredits: PropTypes.number.isRequired,
   electiveCredits: PropTypes.number.isRequired,
   freeCredits: PropTypes.number.isRequired,
+  colors: PropTypes.object,
 }
 
 export default CreditsProgress

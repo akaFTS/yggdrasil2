@@ -7,18 +7,28 @@ export default function withEvolution(Component) {
       <EvolutionContext.Consumer>
         {({
           doneClasses,
-          toggleDone,
-          clearDone,
+          doingClasses,
+          scheduledClasses,
+          setClasse,
+          getClasseStatus,
+          clearEvolution,
           toggleQuickEdition,
           isQuickEditing,
+          importEvolution,
+          exportEvolution,
         }) => (
           <Component
             {...props}
             doneClasses={doneClasses}
-            toggleDone={toggleDone}
-            clearDone={clearDone}
+            doingClasses={doingClasses}
+            scheduledClasses={scheduledClasses}
+            setClasse={setClasse}
+            getClasseStatus={getClasseStatus}
+            clearEvolution={clearEvolution}
             toggleQuickEdition={toggleQuickEdition}
             isQuickEditing={isQuickEditing}
+            importEvolution={importEvolution}
+            exportEvolution={exportEvolution}
           />
         )}
       </EvolutionContext.Consumer>

@@ -11,6 +11,8 @@ export default function withClasses(Component) {
           removeClasse,
           clearCustom,
           customBoxClasses,
+          importClasses,
+          exportClasses,
         }) => (
           <Component
             {...props}
@@ -19,6 +21,8 @@ export default function withClasses(Component) {
             removeClasse={removeClasse}
             clearCustom={clearCustom}
             customBoxClasses={customBoxClasses}
+            importClasses={importClasses}
+            exportClasses={exportClasses}
           />
         )}
       </ClassesContext.Consumer>

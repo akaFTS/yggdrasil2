@@ -7,6 +7,7 @@ import withEvolution from '../providers/withEvolution'
 import withClasses from '../providers/withClasses'
 import withElectives from '../providers/withElectives'
 import Button from '../Button'
+import { ClasseStatus } from '../../definitions/constants'
 
 class ClasseAdder extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class ClasseAdder extends Component {
 
   addClasse = () => {
     const { name, code, credits, wcredits, isFree } = this.state
-    const { toggleDone, addClasse, toggleElective, addingId } = this.props
+    const { setClasse, addClasse, toggleElective, addingId } = this.props
 
     addClasse(
       {
@@ -50,7 +51,7 @@ class ClasseAdder extends Component {
       },
       addingId
     )
-    toggleDone(code)
+    setClasse(code, ClasseStatus.DONE)
     if (isFree) toggleElective(code)
 
     this.setState({
@@ -165,7 +166,7 @@ class ClasseAdder extends Component {
 
 ClasseAdder.propTypes = {
   addingId: PropTypes.string.isRequired,
-  toggleDone: PropTypes.func.isRequired,
+  setClasse: PropTypes.func.isRequired,
   addClasse: PropTypes.func.isRequired,
   toggleElective: PropTypes.func.isRequired,
   extraText: PropTypes.node,

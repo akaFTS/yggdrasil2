@@ -8,7 +8,6 @@ import ReportSpecialSection from './ReportSpecialSection'
 import ReportTracks from './ReportTracks'
 
 const Report = ({ name, nusp, obs, doneClasses }) => {
-  const date = new Date()
   return (
     <div className="pa4 opensans">
       <h1 className="tc f5 near-black b">Relatório de Conclusão de Curso</h1>

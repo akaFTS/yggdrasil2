@@ -26,15 +26,24 @@ class ElectivesManager extends Component {
     const { isModalOpen } = this.state
     const {
       doneClasses,
+      doingClasses,
+      scheduledClasses,
       mandatoryClasses,
       freeElectives,
       toggleElective,
     } = this.props
-    const doneElectives = doneClasses.filter(
+
+    const availableClasses = [
+      ...doneClasses,
+      ...doingClasses,
+      ...scheduledClasses,
+    ]
+
+    const pickableElectives = availableClasses.filter(
       classe =>
         !mandatoryClasses.includes(classe) && !freeElectives.includes(classe)
     )
-    const doneFreeElectives = doneClasses.filter(classe =>
+    const pickableFreeElectives = availableClasses.filter(classe =>
       freeElectives.includes(classe)
     )
 
@@ -56,12 +65,13 @@ class ElectivesManager extends Component {
             <div className="br4 ba b--moon-gray">
               <header className="fw6 f5 pa3 near-black">Eletivas</header>
               <main className="pa3 pt0 flex flex-wrap">
-                {doneElectives.map(code => (
+                {pickableElectives.map(code => (
                   <ClasseSlot
                     key={code}
                     code={code}
                     color="dark-blue"
                     overrideClick={() => toggleElective(code)}
+                    forceEnabled
                   />
                 ))}
               </main>
@@ -70,12 +80,13 @@ class ElectivesManager extends Component {
             <div className="br4 ba b--moon-gray">
               <header className="fw6 f5 pa3 near-black">Livres</header>
               <main className="pa3 pt0 flex flex-wrap">
-                {doneFreeElectives.map(code => (
+                {pickableFreeElectives.map(code => (
                   <ClasseSlot
                     key={code}
                     code={code}
                     color="dark-blue"
                     overrideClick={() => toggleElective(code)}
+                    forceEnabled
                   />
                 ))}
               </main>
@@ -93,6 +104,8 @@ ElectivesManager.propTypes = {
   toggleElective: PropTypes.func.isRequired,
   mandatoryClasses: PropTypes.array.isRequired,
   doneClasses: PropTypes.array.isRequired,
+  doingClasses: PropTypes.array.isRequired,
+  scheduledClasses: PropTypes.array.isRequired,
 }
 
 export default withElectives(withEvolution(ElectivesManager))

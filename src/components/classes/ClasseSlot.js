@@ -5,6 +5,7 @@ import withClasses from '../providers/withClasses'
 import ClasseModal from './ClasseModal'
 import EnabledClasse from './EnabledClasse'
 import DisabledClasse from './DisabledClasse'
+import { ClasseStatus } from '../../definitions/constants'
 
 class ClasseSlot extends Component {
   constructor(props) {
@@ -15,17 +16,32 @@ class ClasseSlot extends Component {
   }
 
   handleClickAction = () => {
-    const { isQuickEditing, toggleDone, code } = this.props
-    isQuickEditing ? toggleDone(code) : this.setState({ isModalOpen: true })
+    const { isQuickEditing } = this.props
+    isQuickEditing ? this.switchStatus() : this.setState({ isModalOpen: true })
+  }
+
+  switchStatus = () => {
+    const { getClasseStatus, setClasse, code } = this.props
+    const classeStatus = getClasseStatus(code)
+    setClasse(
+      code,
+      classeStatus === ClasseStatus.NOT_DONE
+        ? ClasseStatus.DONE
+        : classeStatus === ClasseStatus.DONE
+          ? ClasseStatus.DOING
+          : classeStatus === ClasseStatus.DOING
+            ? ClasseStatus.SCHEDULED
+            : ClasseStatus.NOT_DONE
+    )
   }
 
   handleCloseModal = () => {
     this.setState({ isModalOpen: false })
   }
 
-  handleToggleDone = () => {
-    const { toggleDone, code } = this.props
-    toggleDone(code)
+  handleClasseSet = status => {
+    const { setClasse, code } = this.props
+    setClasse(code, status)
   }
 
   removeClasse = () => {
@@ -36,18 +52,25 @@ class ClasseSlot extends Component {
   }
 
   render() {
-    const { code, color, doneClasses, allClasses, overrideClick } = this.props
-    const { isModalOpen } = this.state
-    const isClasseDone = doneClasses.some(classe => classe === code)
-    const classe = allClasses.find(classe => classe.code === code)
+    const {
+      code,
+      color,
+      forceEnabled,
+      doneClasses,
+      getClasseStatus,
+      allClasses,
+      overrideClick,
+    } = this.props
 
+    const { isModalOpen } = this.state
+    const classe = allClasses.find(classe => classe.code === code)
     const isClasseLocked = !classe.dependencies.reduce((acc, dep) => {
       return acc && doneClasses.some(doneClasse => doneClasse === dep)
     }, true)
 
     return (
       <React.Fragment>
-        {isClasseDone ? (
+        {getClasseStatus(code) === ClasseStatus.DONE || forceEnabled ? (
           <EnabledClasse
             classe={classe}
             color={color}
@@ -56,6 +79,7 @@ class ClasseSlot extends Component {
         ) : (
           <DisabledClasse
             classe={classe}
+            status={getClasseStatus(code)}
             onClick={this.handleClickAction}
             locked={isClasseLocked}
           />
@@ -64,9 +88,9 @@ class ClasseSlot extends Component {
           classe={classe}
           color={color}
           isOpen={isModalOpen}
-          isClasseDone={isClasseDone}
+          classeStatus={getClasseStatus(code)}
           onCloseModal={this.handleCloseModal}
-          onToggleDone={this.handleToggleDone}
+          onClasseSet={this.handleClasseSet}
           onClasseRemoved={this.removeClasse}
         />
       </React.Fragment>
@@ -77,10 +101,12 @@ class ClasseSlot extends Component {
 ClasseSlot.propTypes = {
   code: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
-  doneClasses: PropTypes.array.isRequired,
-  toggleDone: PropTypes.func.isRequired,
-  allClasses: PropTypes.array.isRequired,
   overrideClick: PropTypes.func,
+  forceEnabled: PropTypes.bool,
+  doneClasses: PropTypes.array.isRequired,
+  setClasse: PropTypes.func.isRequired,
+  getClasseStatus: PropTypes.func.isRequired,
+  allClasses: PropTypes.array.isRequired,
   isQuickEditing: PropTypes.bool.isRequired,
 }
 

@@ -13,6 +13,8 @@ class ElectivesProvider extends Component {
       freeElectives: JSON.parse(localStorage.getItem('freeElectives')) || [],
       toggleElective: this.toggleElective,
       clearElectives: this.clearElectives,
+      importElectives: this.importElectives,
+      exportElectives: this.exportElectives,
     }
   }
 
@@ -26,6 +28,15 @@ class ElectivesProvider extends Component {
   clearElectives = () => {
     this.setState({ freeElectives: [] })
     localStorage.clear()
+  }
+
+  importElectives = freeElectives => {
+    this.setState({ freeElectives })
+  }
+
+  exportElectives = () => {
+    const { freeElectives } = this.state
+    return freeElectives
   }
 
   toggleElective = code => {

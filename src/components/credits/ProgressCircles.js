@@ -3,7 +3,27 @@ import PropTypes from 'prop-types'
 import CircularProgressbar from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 
-const ProgressCircles = ({ mandatory, elective, free }) => {
+const palettes = {
+  blue: {
+    primary: '#00449E',
+    secondary: '#357EDD',
+    tertiary: '#96CCFF',
+  },
+  gold: {
+    primary: '#FF6300',
+    secondary: '#FFB700',
+    tertiary: '#FFD700',
+  },
+  purple: {
+    primary: '#311B92',
+    secondary: '#5E2CA5',
+    tertiary: '#A463F2',
+  },
+}
+
+const ProgressCircles = ({ mandatory, elective, free, palette }) => {
+  const colorPalette = palette ? palettes[palette] : palettes.blue
+
   return (
     <div className="relative w-100">
       <div>
@@ -13,7 +33,7 @@ const ProgressCircles = ({ mandatory, elective, free }) => {
           styles={{
             trail: { stroke: 'transparent' },
             path: {
-              stroke: '#00449E',
+              stroke: colorPalette.primary,
             },
           }}
         />
@@ -26,7 +46,7 @@ const ProgressCircles = ({ mandatory, elective, free }) => {
           styles={{
             trail: { stroke: 'transparent' },
             path: {
-              stroke: '#357EDD',
+              stroke: colorPalette.secondary,
             },
           }}
         />
@@ -39,7 +59,7 @@ const ProgressCircles = ({ mandatory, elective, free }) => {
           styles={{
             trail: { stroke: 'transparent' },
             path: {
-              stroke: '#96CCFF',
+              stroke: colorPalette.tertiary,
             },
           }}
         />
@@ -52,6 +72,7 @@ ProgressCircles.propTypes = {
   mandatory: PropTypes.number.isRequired,
   elective: PropTypes.number.isRequired,
   free: PropTypes.number.isRequired,
+  palette: PropTypes.string,
 }
 
 export default ProgressCircles

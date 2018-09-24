@@ -17,7 +17,7 @@ const TrackStatus = ({ doneClasses, customBoxClasses }) => {
 
   return (
     <React.Fragment>
-      <div className="flex items-center mb2">
+      <div className="flex items-center mb2 fw5">
         <FontAwesomeIcon
           icon={faCheckCircle}
           className={`${validSistemas ? 'green' : 'white'} f4 mr2`}
@@ -26,7 +26,7 @@ const TrackStatus = ({ doneClasses, customBoxClasses }) => {
           Sistemas de Software
         </span>
       </div>
-      <div className="flex items-center mb2">
+      <div className="flex items-center mb2 fw5">
         <FontAwesomeIcon
           icon={faCheckCircle}
           className={`${validIa ? 'hot-pink' : 'white'} f4 mr2`}
@@ -35,7 +35,7 @@ const TrackStatus = ({ doneClasses, customBoxClasses }) => {
           Inteligência Artificial
         </span>
       </div>
-      <div className="flex items-center mb2">
+      <div className="flex items-center mb2 fw5">
         <FontAwesomeIcon
           icon={faCheckCircle}
           className={`${validEscience ? 'orange' : 'white'} f4 mr2`}
@@ -44,7 +44,7 @@ const TrackStatus = ({ doneClasses, customBoxClasses }) => {
           E-Science
         </span>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center fw5">
         <FontAwesomeIcon
           icon={faCheckCircle}
           className={`${validTeoria ? 'red' : 'white'} f4 mr2`}

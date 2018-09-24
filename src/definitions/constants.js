@@ -9,3 +9,10 @@ export const ClasseTypes = {
   STATISTICS: 1,
   SCIENCE: 2,
 }
+
+export const ClasseStatus = {
+  NOT_DONE: 0,
+  SCHEDULED: 1,
+  DOING: 2,
+  DONE: 3,
+}

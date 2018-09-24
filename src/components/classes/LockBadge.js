@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock } from '@fortawesome/free-solid-svg-icons'
 
-const Lock = () => {
+const LockBadge = () => {
   return (
     <span
       className="fa-layers absolute tc"
@@ -22,4 +22,4 @@ const Lock = () => {
   )
 }
 
-export default Lock
+export default LockBadge

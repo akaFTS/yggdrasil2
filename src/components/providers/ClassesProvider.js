@@ -12,6 +12,8 @@ class ClassesProvider extends Component {
       addClasse: this.addClasse,
       removeClasse: this.removeClasse,
       clearCustom: this.clearCustom,
+      importClasses: this.importClasses,
+      exportClasses: this.exportClasses,
     }
   }
 
@@ -20,6 +22,15 @@ class ClassesProvider extends Component {
       'customClasses',
       JSON.stringify(this.state.customClasses)
     )
+  }
+
+  exportClasses = () => {
+    const { customClasses } = this.state
+    return customClasses
+  }
+
+  importClasses = customClasses => {
+    this.setState({ customClasses })
   }
 
   clearCustom = () => {
@@ -59,7 +70,14 @@ class ClassesProvider extends Component {
 
   render() {
     const { children } = this.props
-    const { customClasses, addClasse, removeClasse, clearCustom } = this.state
+    const {
+      customClasses,
+      addClasse,
+      removeClasse,
+      clearCustom,
+      importClasses,
+      exportClasses,
+    } = this.state
 
     const baseAndCustomClasses = Object.keys(customClasses).reduce(
       (acc, cur) => [...acc, ...customClasses[cur]],
@@ -79,6 +97,8 @@ class ClassesProvider extends Component {
       addClasse,
       removeClasse,
       clearCustom,
+      importClasses,
+      exportClasses,
     }
     return (
       <ClassesContext.Provider value={ctx}>{children}</ClassesContext.Provider>
