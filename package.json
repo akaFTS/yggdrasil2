@@ -1,6 +1,6 @@
 {
   "name": "yggdrasil",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "homepage": "http://akafts.github.io/yggdrasil2",
   "description": "Gerenciador do BCC",
   "private": true,
