@@ -5,13 +5,13 @@
 
 @font-face {
   font-family: 'Open Sans';
-  src: url('/fonts/OpenSans-Regular.ttf') format('truetype');
+  src: url('/../fonts/OpenSans-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Open Sans';
   font-weight: bold;
-  src: url('/fonts/OpenSans-Bold.ttf') format('truetype');
+  src: url('/../fonts/OpenSans-Bold.ttf') format('truetype');
 }
 
 .montserrat {
@@ -23,4 +23,4 @@
 }
 
 
-/*# sourceMappingURL=app.80cddf72.css.map*/
+/*# sourceMappingURL=app.8fbc1d74.css.map*/
