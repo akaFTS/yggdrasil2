@@ -44,10 +44,13 @@ class ClassesBox extends Component {
           <header className="fw6 f4 pa3 pb2 flex justify-between">
             <span>
               <span className={primaryColor}>{box.title}</span>
-              {box.type === BoxTypes.COMPLETE_SOME && (
+              {box.type !== BoxTypes.FREE && (
                 <span className="ml2 f5 mid-gray">
                   (<span className="mh1">{completedClasses}</span>/
-                  <span className={`${colors[0]} mh1`}>{box.minimum}</span>)
+                  <span className={`${colors[0]} mh1`}>
+                    {box.minimum || boxClasses.length}
+                  </span>
+                  )
                 </span>
               )}
             </span>

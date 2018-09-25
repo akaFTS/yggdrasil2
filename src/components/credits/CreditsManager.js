@@ -14,7 +14,8 @@ class CreditsManager extends Component {
     return array
       .map(code => allClasses.find(classe => classe.code === code))
       .reduce(
-        (acc, cur) => acc + parseInt(cur.credits) + parseInt(cur.wcredits),
+        (acc, cur) =>
+          cur ? acc + parseInt(cur.credits) + parseInt(cur.wcredits) : acc,
         0
       )
   }
@@ -25,11 +26,19 @@ class CreditsManager extends Component {
       .filter(code => classes.includes(code))
       .map(code => {
         const classe = allClasses.find(classe => classe.code === code)
-        return [code, parseInt(classe.credits) + parseInt(classe.wcredits)]
+        return classe
+          ? [code, parseInt(classe.credits) + parseInt(classe.wcredits)]
+          : undefined
       })
       .reduce(
         (acc, cur) =>
-          acc.length > 0 ? (acc[1] > cur[1] && cur[1] >= 4 ? cur : acc) : cur,
+          cur
+            ? acc.length > 0
+              ? acc[1] > cur[1] && cur[1] >= 4
+                ? cur
+                : acc
+              : cur
+            : acc,
         []
       )
 

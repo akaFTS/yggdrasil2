@@ -45,9 +45,9 @@ class ClasseSlot extends Component {
   }
 
   removeClasse = () => {
-    const { removeClasse, toggleDone, code } = this.props
+    const { removeClasse, setClasse, code } = this.props
+    //setClasse(code, ClasseStatus.NOT_DONE)
     removeClasse(code)
-    toggleDone(code)
     this.setState({ isModalOpen: false })
   }
 
@@ -64,6 +64,14 @@ class ClasseSlot extends Component {
 
     const { isModalOpen } = this.state
     const classe = allClasses.find(classe => classe.code === code)
+
+    if (!classe) {
+      console.warn(
+        `Matéria ${code} corrompida, retire do seu arquivo e importe novamente.`
+      )
+      return null
+    }
+
     const isClasseLocked = !classe.dependencies.reduce((acc, dep) => {
       return acc && doneClasses.some(doneClasse => doneClasse === dep)
     }, true)

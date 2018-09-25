@@ -12,6 +12,11 @@ export default {
         type: BoxTypes.COMPLETE_ALL,
       },
       {
+        title: 'Otimização I',
+        classes: ['MAC0315', 'MAC0325'],
+        type: BoxTypes.COMPLETE_ALL,
+      },
+      {
         title: 'Algoritmos II',
         classes: [
           'MAC0325',
@@ -23,11 +28,6 @@ export default {
           'MAC0466',
         ],
         type: BoxTypes.FREE,
-      },
-      {
-        title: 'Otimização I',
-        classes: ['MAC0315', 'MAC0325'],
-        type: BoxTypes.COMPLETE_ALL,
       },
     ],
     right: [

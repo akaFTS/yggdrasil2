@@ -6,6 +6,7 @@ import withEvolution from '../providers/withEvolution'
 import Button from '../Button'
 import { faGraduationCap, faFileAlt } from '@fortawesome/free-solid-svg-icons'
 import Report from './Report'
+import ReportButton from './ReportButton'
 
 class ReportManager extends Component {
   constructor(props) {
@@ -41,15 +42,13 @@ class ReportManager extends Component {
 
   render() {
     const { isModalOpen, isShowingReport, name, nusp, obs } = this.state
-    const { doneClasses } = this.props
+    const { doneClasses, isCourseFinished } = this.props
 
     return (
-      <div className="bg-washed-yellow pa3 br4">
-        <div className="tc fw6 dark-blue mb2 f4">Você concluiu o curso!</div>
-        <Button
-          text="Gerar Relatório"
-          icon={faGraduationCap}
-          onClick={this.openModal}
+      <React.Fragment>
+        <ReportButton
+          handleReportClick={this.openModal}
+          isCourseFinished={isCourseFinished}
         />
         <Modal
           center
@@ -123,12 +122,13 @@ class ReportManager extends Component {
             )}
           </div>
         </Modal>
-      </div>
+      </React.Fragment>
     )
   }
 }
 
 ReportManager.propTypes = {
+  isCourseFinished: PropTypes.bool.isRequired,
   doneClasses: PropTypes.array.isRequired,
 }
 

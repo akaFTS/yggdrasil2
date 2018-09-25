@@ -37,13 +37,15 @@ const CreditsDash = ({ doneClasses }) => {
             <div className="mt4 mt0-m mt4-l">
               <TrackStatus doneClasses={doneCopy} />
             </div>
-            {mandatoryCredits >= 111 &&
-              electiveCredits >= 52 &&
-              freeCredits >= 24 && (
-                <div className="mt4 w-100">
-                  <ReportManager />
-                </div>
-              )}
+            <div className="mt4 w-100">
+              <ReportManager
+                isCourseFinished={
+                  mandatoryCredits >= 111 &&
+                  electiveCredits >= 52 &&
+                  freeCredits >= 24
+                }
+              />
+            </div>
           </div>
         </div>
       )}

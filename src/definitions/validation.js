@@ -15,7 +15,7 @@ export function validateBox(box, doneClasses, customBoxClasses) {
     ? completedClasses === box.classes.length
     : box.type === BoxTypes.COMPLETE_SOME
       ? completedClasses >= box.minimum
-      : false
+      : true
 }
 
 export function validateTrack(track, doneClasses, customBoxClasses) {

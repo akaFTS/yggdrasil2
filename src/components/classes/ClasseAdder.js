@@ -44,7 +44,7 @@ class ClasseAdder extends Component {
 
     addClasse(
       {
-        code: code.trim(),
+        code: code.trim().toUpperCase(),
         name,
         credits: credits.trim() || 0,
         wcredits: wcredits.trim() || 0,

@@ -39,6 +39,13 @@ class ClassesProvider extends Component {
   }
 
   addClasse = (classe, box) => {
+    if (
+      this.getFullClassesList().some(
+        fullClasse => classe.code === fullClasse.code
+      )
+    )
+      return
+
     const { customClasses } = this.state
     const updatedClasses = customClasses[box]
       ? {
@@ -68,6 +75,14 @@ class ClassesProvider extends Component {
     this.setState({ customClasses: updatedClasses })
   }
 
+  getFullClassesList = () => {
+    const { customClasses } = this.state
+    return Object.keys(customClasses).reduce(
+      (acc, cur) => [...acc, ...customClasses[cur]],
+      allClasses
+    )
+  }
+
   render() {
     const { children } = this.props
     const {
@@ -79,10 +94,7 @@ class ClassesProvider extends Component {
       exportClasses,
     } = this.state
 
-    const baseAndCustomClasses = Object.keys(customClasses).reduce(
-      (acc, cur) => [...acc, ...customClasses[cur]],
-      allClasses
-    )
+    const baseAndCustomClasses = this.getFullClassesList()
 
     const customBoxClasses = Object.keys(customClasses).reduce(
       (acc, cur) => ({
