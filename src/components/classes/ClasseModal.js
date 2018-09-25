@@ -14,6 +14,7 @@ import {
 import ElectiveToggle from './ElectiveToggle'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { ClasseStatus } from '../../definitions/constants'
+import ClasseStatusBox from './ClasseStatusBox'
 
 class ClasseModal extends Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class ClasseModal extends Component {
         <div className="montserrat">
           <div className="flex items-center mb4 mh3">
             <img
-              className="mr2"
+              className="mr2 flex-none"
               src={`skills/${classe.code}.gif`}
               onError={e => {
                 e.target.src = 'skills/custom.gif'
@@ -50,94 +51,50 @@ class ClasseModal extends Component {
               style={{ height: '2.5rem' }}
             />
             <div>
-              <div className={`f4 fw5 ${color}`}>{classe.name}</div>
+              <div className={`f4 fw5 ${color} pr3`}>{classe.name}</div>
               <div className="f4 fw6 ttu">{classe.code}</div>
             </div>
           </div>
-          <div className="f4 mid-gray ma3">
+          <div className="f4 mid-gray mh3 mv4">
             Créditos:
             <span className={`fw6 ${color} mh1`}>{classe.credits}</span>+
             <span className="fw6 ml1">{classe.wcredits}</span>
           </div>
-          <div className="mb3 flex">
-            <div
-              className={`w-25 tc pv2 fw5 ${
-                classeStatus === ClasseStatus.NOT_DONE
-                  ? 'bg-dark-red white'
-                  : 'bg-light-gray dark-red pointer hover-bg-moon-gray'
-              }`}
-              onClick={() =>
-                classeStatus !== ClasseStatus.NOT_DONE
-                  ? onClasseSet(ClasseStatus.NOT_DONE)
-                  : null
-              }
-            >
-              <FontAwesomeIcon
-                icon={faTimes}
-                transform="grow-3"
-                className="mr2"
-              />
-              Não Feito
-            </div>
-            <div
-              className={`w-25 tc pv2 fw5 ${
-                classeStatus === ClasseStatus.SCHEDULED
-                  ? 'bg-purple white'
-                  : 'bg-light-gray purple pointer hover-bg-moon-gray'
-              }`}
-              onClick={() =>
-                classeStatus !== ClasseStatus.SCHEDULED
-                  ? onClasseSet(ClasseStatus.SCHEDULED)
-                  : null
-              }
-            >
-              <FontAwesomeIcon
-                icon={faClock}
-                transform="grow-3"
-                className="mr2"
-              />
-              Agendado
-            </div>
-            <div
-              className={`w-25 tc pv2 fw5 ${
-                classeStatus === ClasseStatus.DOING
-                  ? 'bg-gold white'
-                  : 'bg-light-gray gold pointer hover-bg-moon-gray'
-              }`}
-              onClick={() =>
-                classeStatus !== ClasseStatus.DOING
-                  ? onClasseSet(ClasseStatus.DOING)
-                  : null
-              }
-            >
-              <FontAwesomeIcon
-                icon={faPencilAlt}
-                transform="grow-3"
-                className="mr2"
-              />
-              Fazendo
-            </div>
-            <div
-              className={`w-25 tc pv2 fw5 ${
-                classeStatus === ClasseStatus.DONE
-                  ? 'bg-dark-green white'
-                  : 'bg-light-gray dark-green pointer hover-bg-moon-gray'
-              }`}
-              onClick={() =>
-                classeStatus !== ClasseStatus.DONE
-                  ? onClasseSet(ClasseStatus.DONE)
-                  : null
-              }
-            >
-              <FontAwesomeIcon
-                icon={faCheck}
-                transform="grow-3"
-                className="mr2"
-              />
-              Feito
-            </div>
+          <div className="mb4 flex flex-wrap">
+            <ClasseStatusBox
+              title="Não Feito"
+              icon={faTimes}
+              color="dark-red"
+              currentStatus={classeStatus}
+              status={ClasseStatus.NOT_DONE}
+              onClasseSet={onClasseSet}
+            />
+            <ClasseStatusBox
+              title="Agendado"
+              icon={faClock}
+              color="purple"
+              currentStatus={classeStatus}
+              status={ClasseStatus.SCHEDULED}
+              onClasseSet={onClasseSet}
+            />
+            <ClasseStatusBox
+              title="Cursando"
+              icon={faPencilAlt}
+              color="gold"
+              currentStatus={classeStatus}
+              status={ClasseStatus.DOING}
+              onClasseSet={onClasseSet}
+            />
+            <ClasseStatusBox
+              title="Feito"
+              icon={faCheck}
+              color="dark-green"
+              currentStatus={classeStatus}
+              status={ClasseStatus.DONE}
+              onClasseSet={onClasseSet}
+            />
           </div>
-          <div className="flex-l justify-end mb4 mh3">
+          <div className="flex justify-end mb4 mh3">
             <ElectiveToggle code={classe.code} color={color} />
           </div>
           <div className="bt b--moon-gray pv4 lh-title mh3">

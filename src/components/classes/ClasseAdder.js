@@ -46,8 +46,8 @@ class ClasseAdder extends Component {
       {
         code: code.trim(),
         name,
-        credits: credits.trim(),
-        wcredits: wcredits.trim(),
+        credits: credits.trim() || 0,
+        wcredits: wcredits.trim() || 0,
       },
       addingId
     )
