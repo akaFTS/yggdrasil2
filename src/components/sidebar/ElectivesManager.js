@@ -48,7 +48,7 @@ class ElectivesManager extends Component {
     )
 
     return (
-      <div className="pa1">
+      <div>
         <Button text="Gerenciar Optativas Livres" onClick={this.openModal} />
         <Modal
           center

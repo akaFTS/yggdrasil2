@@ -3,4 +3,11 @@ module.exports = {
   babel: {
     plugins: ['import-graphql'],
   },
+  webpack: {
+    rules: {
+      css: {
+        url: false,
+      },
+    },
+  },
 }

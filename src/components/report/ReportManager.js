@@ -44,9 +44,9 @@ class ReportManager extends Component {
     const { doneClasses } = this.props
 
     return (
-      <React.Fragment>
+      <div className="bg-washed-yellow pa3 br4">
+        <div className="tc fw6 dark-blue mb2 f4">Você concluiu o curso!</div>
         <Button
-          variation="important"
           text="Gerar Relatório"
           icon={faGraduationCap}
           onClick={this.openModal}
@@ -75,6 +75,7 @@ class ReportManager extends Component {
                     paperSize={'A4'}
                     fileName="relatorioConclusaoBCC.pdf"
                     ref={r => (this.resume = r)}
+                    keepTogether="section"
                   >
                     <Report
                       name={name}
@@ -122,7 +123,7 @@ class ReportManager extends Component {
             )}
           </div>
         </Modal>
-      </React.Fragment>
+      </div>
     )
   }
 }

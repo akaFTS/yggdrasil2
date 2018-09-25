@@ -39,7 +39,7 @@ class ScheduleManager extends Component {
     const { doingClasses, doneClasses, scheduledClasses } = this.props
 
     return (
-      <div className="pa1">
+      <div>
         <Button
           text="Ver Agenda"
           variation="important"

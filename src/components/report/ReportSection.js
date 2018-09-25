@@ -10,7 +10,7 @@ const ReportSection = ({
   shouldHideCredits,
 }) => {
   return (
-    <div className="mt5">
+    <section className="mt5">
       <div className="b f6 mb1">{title}:</div>
       <div className="flex flex-wrap">
         {classes.map(code => (
@@ -23,7 +23,7 @@ const ReportSection = ({
           {credits}/{totalCredits}
         </div>
       )}
-    </div>
+    </section>
   )
 }
 
