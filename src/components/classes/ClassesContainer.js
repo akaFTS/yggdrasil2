@@ -8,7 +8,7 @@ import teoria from '../../tracks/teoria'
 
 const ClassesContainer = () => {
   return (
-    <main>
+    <main className="flex-auto">
       <Track
         title="Geral"
         colors={['dark-blue', 'bg-light-blue']}
