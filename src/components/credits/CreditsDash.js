@@ -5,7 +5,6 @@ import withEvolution from '../providers/withEvolution'
 import TrackStatus from './TrackStatus'
 import CreditsProgress from './CreditsProgress'
 import CreditsManager from './CreditsManager'
-import ReportManager from '../report/ReportManager'
 
 const CreditsDash = ({ doneClasses }) => {
   const doneCopy = [...doneClasses]
@@ -36,15 +35,6 @@ const CreditsDash = ({ doneClasses }) => {
             </div>
             <div className="mt4 mt0-m mt4-l">
               <TrackStatus doneClasses={doneCopy} />
-            </div>
-            <div className="mt4 w-100">
-              <ReportManager
-                isCourseFinished={
-                  mandatoryCredits >= 111 &&
-                  electiveCredits >= 52 &&
-                  freeCredits >= 24
-                }
-              />
             </div>
           </div>
         </div>

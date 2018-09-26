@@ -11,6 +11,7 @@ import CreditsDash from '../credits/CreditsDash'
 import Switch from 'react-ios-switch'
 import ScheduleManager from './ScheduleManager'
 import IOManager from './IOManager'
+import ReportManager from '../report/ReportManager'
 
 class Sidebar extends Component {
   clearCaches = () => {
@@ -44,6 +45,9 @@ class Sidebar extends Component {
         </div>
         <div className="mv4 mh3">
           <IOManager />
+        </div>
+        <div className="mv4 mh3">
+          <ReportManager />
         </div>
         <div className="mv4 mh3">
           <div className="mb4 mb0-l flex items-center">

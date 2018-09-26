@@ -13,7 +13,12 @@ import './extended-colors.css'
 class App extends Component {
   render() {
     return (
-      <div className="montserrat bg-light-gray">
+      <div
+        className="montserrat bg-light-gray"
+        style={{
+          touchAction: 'manipulation',
+        }}
+      >
         <EvolutionProvider>
           <ClassesProvider>
             <ElectivesProvider>
