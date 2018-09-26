@@ -4,7 +4,8 @@ import ReportClasse from './ReportClasse'
 
 const ReportSection = ({
   title,
-  classes,
+  classesFinished,
+  classesOngoing,
   credits,
   totalCredits,
   shouldHideCredits,
@@ -13,8 +14,11 @@ const ReportSection = ({
     <section className="mt5">
       <div className="b f6 mb1">{title}:</div>
       <div className="flex flex-wrap">
-        {classes.map(code => (
+        {classesFinished.map(code => (
           <ReportClasse key={code} code={code} />
+        ))}
+        {classesOngoing.map(code => (
+          <ReportClasse ongoing key={code} code={code} />
         ))}
       </div>
       {!shouldHideCredits && (
@@ -29,7 +33,8 @@ const ReportSection = ({
 
 ReportSection.propTypes = {
   title: PropTypes.string.isRequired,
-  classes: PropTypes.array.isRequired,
+  classesFinished: PropTypes.array.isRequired,
+  classesOngoing: PropTypes.array.isRequired,
   credits: PropTypes.number,
   totalCredits: PropTypes.number,
   shouldHideCredits: PropTypes.bool,

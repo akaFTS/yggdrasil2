@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
+import Button from '../Button'
 
 class ReportButton extends Component {
   constructor(props) {
@@ -14,11 +15,12 @@ class ReportButton extends Component {
   showTip = () => this.setState({ isShowingTip: true })
 
   render() {
-    const { handleReportClick, isCourseFinished } = this.props
+    const { handleReportClick, isLikelyGraduate } = this.props
     const { isShowingTip } = this.state
-    return isCourseFinished ? (
+    return isLikelyGraduate ? (
       <Button
-        text="Relatório de Conclusão"
+        variation="important"
+        text="Provável Formando"
         icon={faGraduationCap}
         onClick={handleReportClick}
       />
@@ -30,11 +32,12 @@ class ReportButton extends Component {
           onMouseLeave={this.hideTip}
         >
           <FontAwesomeIcon icon={faGraduationCap} className="mr2" />
-          <span>Relatório de Conclusão</span>
+          <span>Provável Formando</span>
         </div>
         {isShowingTip && (
           <div className="tc f7 silver mt1 ph2 absolute">
-            Termine o curso para poder gerar seu relatório de provável formando.
+            Para ser provável formando, você precisa estar terminando o curso
+            neste semestre.
           </div>
         )}
       </div>
@@ -44,7 +47,7 @@ class ReportButton extends Component {
 
 ReportButton.propTypes = {
   handleReportClick: PropTypes.func.isRequired,
-  isCourseFinished: PropTypes.bool,
+  isLikelyGraduate: PropTypes.bool,
 }
 
 export default ReportButton

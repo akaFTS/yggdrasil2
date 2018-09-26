@@ -43,11 +43,11 @@ class ReportManager extends Component {
 
   render() {
     const { isModalOpen, isShowingReport, name, nusp, obs } = this.state
-    const { doneClasses } = this.props
+    const { doneClasses, doingClasses } = this.props
 
     return (
       <React.Fragment>
-        <CreditsManager doneClasses={doneClasses}>
+        <CreditsManager doneClasses={[...doneClasses, ...doingClasses]}>
           {({
             scienceOptative,
             statisticsOptative,
@@ -57,7 +57,7 @@ class ReportManager extends Component {
           }) => (
             <ReportButton
               handleReportClick={this.openModal}
-              isCourseFinished={
+              isLikelyGraduate={
                 scienceOptative &&
                 statisticsOptative &&
                 mandatoryCredits >= 111 &&
@@ -93,12 +93,7 @@ class ReportManager extends Component {
                     ref={r => (this.resume = r)}
                     keepTogether="section"
                   >
-                    <Report
-                      name={name}
-                      nusp={nusp}
-                      obs={obs}
-                      doneClasses={doneClasses}
-                    />
+                    <Report name={name} nusp={nusp} obs={obs} />
                   </PDFExport>
                 </div>
                 <div className="pv2 bg-moon-gray br--bottom br4 w-90 center mb4" />
@@ -146,6 +141,7 @@ class ReportManager extends Component {
 
 ReportManager.propTypes = {
   doneClasses: PropTypes.array.isRequired,
+  doingClasses: PropTypes.array.isRequired,
 }
 
 export default withEvolution(ReportManager)

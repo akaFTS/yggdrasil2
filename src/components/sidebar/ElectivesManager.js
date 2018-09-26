@@ -39,13 +39,16 @@ class ElectivesManager extends Component {
       ...scheduledClasses,
     ]
 
-    const pickableElectives = availableClasses.filter(
-      classe =>
-        !mandatoryClasses.includes(classe) && !freeElectives.includes(classe)
-    )
-    const pickableFreeElectives = availableClasses.filter(classe =>
-      freeElectives.includes(classe)
-    )
+    const pickableElectives = availableClasses
+      .filter(
+        classe =>
+          !mandatoryClasses.includes(classe) && !freeElectives.includes(classe)
+      )
+      .sort()
+
+    const pickableFreeElectives = availableClasses
+      .filter(classe => freeElectives.includes(classe))
+      .sort()
 
     return (
       <div>

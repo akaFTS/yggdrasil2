@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import withClasses from '../providers/withClasses'
-import withEvolution from '../providers/withEvolution'
 import teoria from '../../tracks/teoria'
 import sistemas from '../../tracks/sistemas'
 import escience from '../../tracks/escience'
@@ -30,4 +29,4 @@ ReportTracks.propTypes = {
   customBoxClasses: PropTypes.object.isRequired,
 }
 
-export default withEvolution(withClasses(ReportTracks))
+export default withClasses(ReportTracks)
