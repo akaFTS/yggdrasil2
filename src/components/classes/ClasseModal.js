@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Modal from 'react-responsive-modal'
-import Switch from 'react-ios-switch'
 import ClasseSlot from './ClasseSlot'
 import Button from '../Button'
 import {
@@ -12,7 +11,6 @@ import {
   faCheck,
 } from '@fortawesome/free-solid-svg-icons'
 import ElectiveToggle from './ElectiveToggle'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { ClasseStatus } from '../../definitions/constants'
 import ClasseStatusBox from './ClasseStatusBox'
 
