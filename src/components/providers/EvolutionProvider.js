@@ -60,19 +60,26 @@ class EvolutionProvider extends Component {
 
   setClasse = (code, status) => {
     const { doneClasses, doingClasses, scheduledClasses } = this.state
+
+    const filteredDoneClasses = doneClasses.filter(classe => classe !== code)
+    const filteredDoingClasses = doingClasses.filter(classe => classe !== code)
+    const filteredScheduledClasses = scheduledClasses.filter(
+      classe => classe !== code
+    )
+
     this.setState({
       doneClasses:
         status === ClasseStatus.DONE
-          ? [...doneClasses, code]
-          : doneClasses.filter(classe => classe !== code),
+          ? [...filteredDoneClasses, code]
+          : filteredDoneClasses,
       doingClasses:
         status === ClasseStatus.DOING
-          ? [...doingClasses, code]
-          : doingClasses.filter(classe => classe !== code),
+          ? [...filteredDoingClasses, code]
+          : filteredDoingClasses,
       scheduledClasses:
         status === ClasseStatus.SCHEDULED
-          ? [...scheduledClasses, code]
-          : scheduledClasses.filter(classe => classe !== code),
+          ? [...filteredScheduledClasses, code]
+          : filteredScheduledClasses,
     })
   }
 

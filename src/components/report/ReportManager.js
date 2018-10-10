@@ -26,7 +26,13 @@ class ReportManager extends Component {
   }
 
   handleCloseModal = () => {
-    this.setState({ isModalOpen: false })
+    this.setState({
+      isModalOpen: false,
+      isShowingReport: false,
+      name: '',
+      nusp: '',
+      obs: '',
+    })
   }
 
   showReport = () => {
