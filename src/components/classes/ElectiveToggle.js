@@ -27,7 +27,7 @@ const ElectiveToggle = ({
           </div>
         ) : scienceOptative === code ? (
           <div className="w-100 w5-ns tc ba bw1 b--light-silver br3 ph3 pv1 silver fw5">
-            Optativa de Estatística
+            Optativa de Ciências
           </div>
         ) : (
           <div className="w-100 w5-ns">
