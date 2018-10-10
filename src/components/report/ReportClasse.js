@@ -12,6 +12,11 @@ const Report = ({ code, ongoing, allClasses }) => {
     return null
   }
 
+  const creditsChanged =
+    classe.oldCredits && classe.oldCredits !== classe.credits
+  const wcreditsChanged =
+    classe.oldWCredits && classe.oldWCredits !== classe.wcredits
+
   return (
     <div
       className={`ba pa3 w4 tc ${
@@ -20,7 +25,21 @@ const Report = ({ code, ongoing, allClasses }) => {
     >
       <div className="f6 b">{classe.code}</div>
       <div className="f6 mt1">
-        <span>{classe.credits}</span>+<span>{classe.wcredits}</span>
+        {creditsChanged ? (
+          <span>
+            ({classe.oldCredits})<span className="fw6">{classe.credits}</span>
+          </span>
+        ) : (
+          <span>{classe.credits}</span>
+        )}
+        +
+        {wcreditsChanged ? (
+          <span>
+            <span className="fw6">{classe.wcredits}</span>({classe.oldWCredits})
+          </span>
+        ) : (
+          <span>{classe.wcredits}</span>
+        )}
       </div>
     </div>
   )
