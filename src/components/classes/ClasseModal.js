@@ -13,6 +13,7 @@ import {
 import ElectiveToggle from './ElectiveToggle'
 import { ClasseStatus } from '../../definitions/constants'
 import ClasseStatusBox from './ClasseStatusBox'
+import ClasseCredits from './ClasseCredits'
 
 class ClasseModal extends Component {
   constructor(props) {
@@ -54,9 +55,7 @@ class ClasseModal extends Component {
             </div>
           </div>
           <div className="f4 mid-gray mh3 mv4">
-            Créditos:
-            <span className={`fw6 ${color} mh1`}>{classe.credits}</span>+
-            <span className="fw6 ml1">{classe.wcredits}</span>
+            <ClasseCredits classe={classe} color={color} />
           </div>
           <div className="mb4 flex flex-wrap">
             <ClasseStatusBox

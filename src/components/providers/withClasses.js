@@ -13,6 +13,8 @@ export default function withClasses(Component) {
           customBoxClasses,
           importClasses,
           exportClasses,
+          setCredits,
+          resetCredits,
         }) => (
           <Component
             {...props}
@@ -23,6 +25,8 @@ export default function withClasses(Component) {
             customBoxClasses={customBoxClasses}
             importClasses={importClasses}
             exportClasses={exportClasses}
+            setCredits={setCredits}
+            resetCredits={resetCredits}
           />
         )}
       </ClassesContext.Consumer>

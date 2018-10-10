@@ -9,33 +9,61 @@ class ClassesProvider extends Component {
     super(props)
     this.state = {
       customClasses: JSON.parse(localStorage.getItem('customClasses')) || {},
+      customCredits: JSON.parse(localStorage.getItem('customCredits')) || [],
       addClasse: this.addClasse,
       removeClasse: this.removeClasse,
       clearCustom: this.clearCustom,
       importClasses: this.importClasses,
       exportClasses: this.exportClasses,
+      setCredits: this.setCredits,
+      resetCredits: this.resetCredits,
     }
   }
 
   componentDidUpdate() {
-    localStorage.setItem(
-      'customClasses',
-      JSON.stringify(this.state.customClasses)
-    )
+    const { customClasses, customCredits } = this.state
+    localStorage.setItem('customClasses', JSON.stringify(customClasses))
+    localStorage.setItem('customCredits', JSON.stringify(customCredits))
   }
 
   exportClasses = () => {
-    const { customClasses } = this.state
-    return customClasses
+    const { customClasses, customCredits } = this.state
+    return { customClasses, customCredits }
   }
 
-  importClasses = customClasses => {
-    this.setState({ customClasses })
+  importClasses = classes => {
+    classes.customClasses
+      ? this.setState({
+          customClasses: classes.customClasses,
+          customCredits: classes.customCredits,
+        })
+      : this.setState({ customClasses: classes, customCredits: [] })
   }
 
   clearCustom = () => {
     this.setState({ customClasses: {} })
     localStorage.clear()
+  }
+
+  setCredits = (code, credits, wcredits) => {
+    const { customCredits } = this.state
+    const filteredCustomCredits = customCredits.filter(cc => cc.code !== code)
+
+    const targetClasse = allClasses.find(classe => classe.code === code)
+    const isAltered =
+      targetClasse.credits !== credits || targetClasse.wcredits !== wcredits
+
+    this.setState({
+      customCredits: isAltered
+        ? [...filteredCustomCredits, { code, credits, wcredits }]
+        : filteredCustomCredits,
+    })
+  }
+
+  resetCredits = code => {
+    this.setState(prevState => ({
+      customCredits: prevState.customCredits.filter(cc => cc.code !== code),
+    }))
   }
 
   addClasse = (classe, box) => {
@@ -76,11 +104,24 @@ class ClassesProvider extends Component {
   }
 
   getFullClassesList = () => {
-    const { customClasses } = this.state
-    return Object.keys(customClasses).reduce(
+    const { customClasses, customCredits } = this.state
+    const fullClasses = Object.keys(customClasses).reduce(
       (acc, cur) => [...acc, ...customClasses[cur]],
       allClasses
     )
+    return fullClasses.map(classe => {
+      const customCred = customCredits.find(cc => cc.code === classe.code)
+      return customCred
+        ? {
+            ...classe,
+            credits: customCred.credits,
+            wcredits: customCred.wcredits,
+            oldCredits: classe.credits,
+            oldWCredits: classe.wcredits,
+            creditsChanged: true,
+          }
+        : classe
+    })
   }
 
   render() {
@@ -92,6 +133,8 @@ class ClassesProvider extends Component {
       clearCustom,
       importClasses,
       exportClasses,
+      setCredits,
+      resetCredits,
     } = this.state
 
     const baseAndCustomClasses = this.getFullClassesList()
@@ -111,6 +154,8 @@ class ClassesProvider extends Component {
       clearCustom,
       importClasses,
       exportClasses,
+      setCredits,
+      resetCredits,
     }
     return (
       <ClassesContext.Provider value={ctx}>{children}</ClassesContext.Provider>
