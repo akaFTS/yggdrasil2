@@ -155,7 +155,7 @@ class ClasseAdder extends Component {
             </div>
             <Button text="Adicionar" icon={faPlus} onClick={this.addClasse} />
             {extraText && (
-              <div className="mt4 tj gray f6 lh-copy">{extraText}</div>
+              <div className="mt3 tc red fw6 f6 lh-copy">{extraText}</div>
             )}
           </div>
         </Modal>
