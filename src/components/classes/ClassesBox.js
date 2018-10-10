@@ -2,12 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ClasseSlot from './ClasseSlot'
 import withEvolution from '../providers/withEvolution'
-import { BoxTypes, ClasseTypes } from '../../definitions/constants'
+import { BoxTypes } from '../../definitions/constants'
 import { validateBox } from '../../definitions/validation'
 import ClasseAdder from './ClasseAdder'
 import withClasses from '../providers/withClasses'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
 class ClassesBox extends Component {
   constructor(props) {
@@ -54,27 +52,7 @@ class ClassesBox extends Component {
                 </span>
               )}
             </span>
-            {(box.classeType === ClasseTypes.SCIENCE ||
-              box.classeType === ClasseTypes.STATISTICS) && (
-              <FontAwesomeIcon
-                className={`${
-                  isShowingInfo ? 'dark-gray' : 'silver'
-                } pointer hover-dark-gray`}
-                icon={faInfoCircle}
-                onClick={this.toggleInfo}
-              />
-            )}
           </header>
-          {isShowingInfo && (
-            <header className="pa3 f6 gray lh-title bg-near-white">
-              Uma das matérias cursadas deste grupo será usada como Optativa de
-              {box.classeType === ClasseTypes.SCIENCE
-                ? ' Ciências'
-                : ' Estatística'}
-              , as demais contarão como eletivas ou livres conforme
-              especificado.
-            </header>
-          )}
           <main className="pa3 pt2 flex flex-wrap">
             {boxClasses.map(code => (
               <ClasseSlot key={code} code={code} color={colors[0]} />
