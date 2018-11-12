@@ -7,7 +7,7 @@ export default {
     left: [
       {
         title: 'Núcleo 1',
-        classes: ['MAC0317', 'MAC0426', 'MAC0431', 'MAC0460', 'MAE0221'],
+        classes: ['MAC0317', 'MAC0426', 'MAC0460', 'MAE0221'],
         type: BoxTypes.COMPLETE_ALL,
       },
       {
@@ -28,6 +28,12 @@ export default {
       {
         title: 'Núcleo 3',
         classes: ['MAC0315', 'MAC0325', 'MAC0427'],
+        type: BoxTypes.COMPLETE_SOME,
+        minimum: 1,
+      },
+      {
+        title: 'Núcleo 4',
+        classes: ['MAC0219', 'MAC0431'],
         type: BoxTypes.COMPLETE_SOME,
         minimum: 1,
       },
