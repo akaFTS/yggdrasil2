@@ -10,22 +10,20 @@ import withClasses from '../providers/withClasses'
 class ClassesBox extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      isShowingInfo: false,
-    }
-  }
-
-  toggleInfo = () => {
-    this.setState(prevState => ({ isShowingInfo: !prevState.isShowingInfo }))
+    this.state = {}
   }
 
   render() {
     const { box, doneClasses, colors, customBoxClasses } = this.props
-    const { isShowingInfo } = this.state
 
     const boxClasses =
       box.addable && customBoxClasses[box.addingId]
-        ? [...box.classes, ...customBoxClasses[box.addingId]]
+        ? [
+            ...box.classes,
+            ...customBoxClasses[box.addingId].filter(
+              cc => !box.classes.some(bc => bc === cc)
+            ),
+          ]
         : box.classes
 
     const isBoxComplete = validateBox(box, doneClasses, customBoxClasses)

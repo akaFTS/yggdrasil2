@@ -105,10 +105,16 @@ class ClassesProvider extends Component {
 
   getFullClassesList = () => {
     const { customClasses, customCredits } = this.state
-    const fullClasses = Object.keys(customClasses).reduce(
-      (acc, cur) => [...acc, ...customClasses[cur]],
-      allClasses
-    )
+
+    console.log(customClasses)
+
+    const fullClasses = Object.keys(customClasses)
+      .reduce((acc, cur) => [...acc, ...customClasses[cur]], [])
+      .filter(classe => !allClasses.some(cl => cl.code === classe.code))
+      .concat(allClasses)
+
+    console.log(fullClasses)
+
     return fullClasses.map(classe => {
       const customCred = customCredits.find(cc => cc.code === classe.code)
       return customCred
