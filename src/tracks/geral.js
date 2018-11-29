@@ -38,7 +38,7 @@ export default {
       {
         title: 'Optativa de Estatística',
         classeType: ClasseTypes.STATISTICS,
-        classes: ['MAE0217', 'MAE0221', 'MAE0228'],
+        classes: ['MAE0217', 'MAE0221', 'MAE0228', 'MAE0312', 'MAE0499'],
         type: BoxTypes.COMPLETE_SOME,
         minimum: 1,
       },
@@ -53,6 +53,7 @@ export default {
           'QBQ0104',
           'QBQ1252',
           'QBQ1354',
+          'AGA0215',
         ],
         type: BoxTypes.COMPLETE_SOME,
         minimum: 1,
