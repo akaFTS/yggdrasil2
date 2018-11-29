@@ -5,14 +5,14 @@ export default {
     left: [
       {
         title: 'Desenvolvimento de Software I',
-        classes: ['MAC0218', 'MAC0332'],
+        classes: ['MAC0218'],
         type: BoxTypes.COMPLETE_ALL,
       },
       {
         title: 'Desenvolvimento de Software II',
-        classes: ['MAC0413', 'MAC0467', 'MAC0470', 'MAC0472'],
+        classes: ['MAC0332', 'MAC0413', 'MAC0467', 'MAC0470', 'MAC0472'],
         type: BoxTypes.COMPLETE_SOME,
-        minimum: 2,
+        minimum: 3,
       },
     ],
     right: [
