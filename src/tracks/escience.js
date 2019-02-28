@@ -21,7 +21,7 @@ export default {
     right: [
       {
         title: 'Núcleo 2',
-        classes: ['MAE0312', 'MAE0228'],
+        classes: ['MAE0312', 'MAE0228', 'MAE0580'],
         type: BoxTypes.COMPLETE_SOME,
         minimum: 1,
       },
