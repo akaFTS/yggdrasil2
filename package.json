@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "gh-pages": "^2.0.0",
-    "nwb": "0.23.x"
+    "nwb": "^0.23.0"
   },
   "author": "",
   "license": "MIT",
