@@ -19,8 +19,8 @@ const Report = ({ code, ongoing, allClasses }) => {
 
   return (
     <div
-      className={`ba pa3 w4 tc ${
-        ongoing ? 'bg-washed-yellow' : 'bg-washed-green'
+      className={`ba w4 tc ${
+        ongoing ? 'bg-washed-yellow pa2' : 'bg-washed-green pa3'
       }`}
     >
       <div className="f6 b">{classe.code}</div>
@@ -41,6 +41,7 @@ const Report = ({ code, ongoing, allClasses }) => {
           <span>{classe.wcredits}</span>
         )}
       </div>
+      {ongoing ? <div className="f7 mt1 b">cursando</div> : null}
     </div>
   )
 }
