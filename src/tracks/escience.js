@@ -2,7 +2,7 @@ import { BoxTypes } from '../definitions/constants'
 
 export default {
   description:
-    'Para completar a trilha, o aluno deverá completar os três núcleos. Além disso, é recomendado (mas não obrigatório) que ele escolha uma área de aplicação (e.g., Bioinformática, Economia, Administração, Mecatrônica, Imagens Médicas, Engenharia de Software, Música Computacional, Astronomia, Análise Esportiva, etc.) e curse duas matérias dela, além de fazer seu TCC na área.',
+    'Para completar a trilha, o aluno deverá completar os quatro núcleos. Além disso, é recomendado (mas não obrigatório) que ele escolha uma área de aplicação (e.g., Bioinformática, Economia, Administração, Mecatrônica, Imagens Médicas, Engenharia de Software, Música Computacional, Astronomia, Análise Esportiva, etc.) e curse duas matérias dela, além de fazer seu TCC na área.',
   boxes: {
     left: [
       {
