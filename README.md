@@ -26,10 +26,6 @@ O arquivo 'jupiterCrawl.js`é um crawler que irá carregar todas as matérias qu
 
 O crawler demora um pouco pra rodar e gasta bastante CPU. Após usá-lo, é necessário refazer o deploy do projeto.
 
-### Deploy
+### Enviando modificações
 
-Para fazer o deploy, basta rodar `npm run deploy` e o sistema será automaticamente buildado e enviado para o GitHub Pages.
-
-### Versionando
-
-Ao fazer qualquer modificação nas trilhas ou matérias, abra um PR (pull request) aqui no Yggdrasil para manter a codebase sempre atualizada.
+Para fazer qualquer modificação nas trilhas ou matérias, realize um fork do projeto no GitHub, modifique como quiser e abra um PR (pull request) para o repositório principal do Yggdrasil. Caso o PR seja aprovado, as mudanças serão incorporadas no site.
