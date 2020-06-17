@@ -23,6 +23,7 @@ export default {
           'MAC0327',
           'MAC0331',
           'MAC0336',
+          'MAC0385',
           'MAC0450',
           'MAC0465',
           'MAC0466',
@@ -49,6 +50,10 @@ export default {
           'MAT0234',
           'MAT0265',
           'MAT0311',
+          'MAC0690',
+          'MAC0691',
+          'MAC0775',
+          'MAC0776'
         ],
         type: BoxTypes.FREE,
       },
@@ -64,6 +69,7 @@ export default {
           'MAC0452',
           'MAC0461',
           'MAC0473',
+          'MAC0691'
         ],
         type: BoxTypes.FREE,
       },
