@@ -76,6 +76,8 @@ export default {
           'MAC0446',
           'MAC0458',
           'MAC0468',
+          'MAC0469',
+          'MAC0485'
         ],
         type: BoxTypes.FREE,
         addable: true,

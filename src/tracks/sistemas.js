@@ -29,7 +29,6 @@ export default {
           'MAC0344',
           'MAC0352',
           'MAC0463',
-          'MAC0469',
         ],
         type: BoxTypes.COMPLETE_SOME,
         minimum: 2,
