@@ -22,7 +22,7 @@ Caso alguma matéria nova seja adicionada ao sistema, após adicioná-la no arqu
 
 ### Crawler
 
-O arquivo 'jupiterCrawl.js`é um crawler que irá carregar todas as matérias que fazem parte das trilhas (inclusive as obrigatórias) e buscará informações sobre elas no Jupiter: nome, créditos, ementa e pré-requisitos. Essas informações são salvas em um arquivo`allclasses.json`que é usado pelo sistema. Esse crawler deve ser rodado (`npm run crawler`) sempre que uma nova matéria é adicionada ao Yggdrasil, e também idealmente a cada começo de semestre para pegar updates que acontecem nas matérias ao longo do ano.
+O arquivo `jupiterCrawl.js`é um crawler que irá carregar todas as matérias que fazem parte das trilhas (inclusive as obrigatórias) e buscará informações sobre elas no Jupiter: nome, créditos, ementa e pré-requisitos. Essas informações são salvas em um arquivo`allclasses.json`que é usado pelo sistema. Esse crawler deve ser rodado (`npm run crawler`) sempre que uma nova matéria é adicionada ao Yggdrasil, e também idealmente a cada começo de semestre para pegar updates que acontecem nas matérias ao longo do ano.
 
 O crawler demora um pouco pra rodar e gasta bastante CPU. Após usá-lo, é necessário refazer o deploy do projeto.
 
