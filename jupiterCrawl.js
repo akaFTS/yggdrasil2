@@ -17,76 +17,85 @@ const grabClassesFromTrack = track => [
   ...grabClassesFromBoxes(track.boxes.left),
   ...grabClassesFromBoxes(track.boxes.right),
 ]
-;(async function() {
+
+; (async function () {
+  const remaining = new Set([
+    ...grabClassesFromTrack(geral),
+    ...grabClassesFromTrack(teoria),
+    ...grabClassesFromTrack(escience),
+    ...grabClassesFromTrack(sistemas),
+    ...grabClassesFromTrack(ia),
+  ])
+
   const allClasses = Array.from(
-    new Set([
-      ...grabClassesFromTrack(geral),
-      ...grabClassesFromTrack(teoria),
-      ...grabClassesFromTrack(escience),
-      ...grabClassesFromTrack(sistemas),
-      ...grabClassesFromTrack(ia),
-    ])
+    remaining
   )
 
-  const fullClasses = await Promise.all(
-    allClasses.map(async code => {
-      console.log(`Buscando matéria ${code}...`)
-      const instance = await phantom.create()
-      const page = await instance.createPage()
+  var fullClasses = []
+  for (const code of allClasses) {
+    console.log(`Buscando materia ${code}...`)
+    const instance = await phantom.create()
+    const page = await instance.createPage()
 
-      await page.open(
-        `https://uspdigital.usp.br/jupiterweb/obterDisciplina?sgldis=${code}`
-      )
-      const content = await page.property('content')
-      const $ = cheerio.load(content)
-      const headerTable = $(
-        '#layout_conteudo form[name=form1] table tr table:eq(2)'
-      )
-      const name = $('tr:eq(4)', headerTable)
-        .text()
-        .split('-')[1]
-        .trim()
+    await page.open(
+      `https://uspdigital.usp.br/jupiterweb/obterDisciplina?sgldis=${code}`
+    )
+    const content = await page.property('content')
+    const $ = cheerio.load(content)
+    const headerTable = $(
+      '#layout_conteudo form[name=form1] table tr table:eq(2)'
+    )
+    const name = $('tr:eq(4)', headerTable)
+      .text()
+      .split('-')[1]
+      .trim()
 
-      const creditsTable = $(
-        '#layout_conteudo form[name=form1] table tr table:eq(3)'
-      )
-      const credits = $('tr:eq(0)', creditsTable)
-        .text()
-        .replace(/\D/g, '')
-      const wcredits = $('tr:eq(1)', creditsTable)
-        .text()
-        .replace(/\D/g, '')
+    const creditsTable = $(
+      '#layout_conteudo form[name=form1] table tr table:eq(3)'
+    )
+    const credits = $('tr:eq(0)', creditsTable)
+      .text()
+      .replace(/\D/g, '')
+    const wcredits = $('tr:eq(1)', creditsTable)
+      .text()
+      .replace(/\D/g, '')
 
-      let summaryTable = $(
-        '#layout_conteudo form[name=form1] table tr table:eq(5)'
-      )
-      if (
-        $('tr:eq(0)', summaryTable)
+    let summaryTable = $(
+      '#layout_conteudo form[name=form1] table tr table:eq(5)'
+    )
+    if (
+      $('tr:eq(0)', summaryTable)
+        .text()
+        .includes('Docente')
+    ) {
+      summaryTable = summaryTable.next('table')
+    }
+    const summaryRow = $('tr', summaryTable).filter(
+      (_, el) =>
+        $(el)
           .text()
-          .includes('Docente')
-      ) {
-        summaryTable = summaryTable.next('table')
-      }
-      const summaryRow = $('tr', summaryTable).filter(
-        (_, el) =>
-          $(el)
-            .text()
-            .trim() === 'Programa'
-      )
-      const summary = summaryRow
-        .next('tr')
-        .text()
-        .trim()
+          .trim() === 'Programa'
+    )
+    const summary = summaryRow
+      .next('tr')
+      .text()
+      .trim()
 
-      const dependencies = await fetchDependencies(page, code)
+    console.log(`Buscando requisitos ${code}...`)
+    const dependencies = await fetchDependencies(page, code)
 
-      await instance.exit()
-      return { code, name, credits, wcredits, summary, dependencies }
-    })
-  )
+    console.log(`Finalizando ${code}...`)
+    instance.exit()
+
+    remaining.delete(code)
+    console.log(`Faltam ${remaining.size}...`)
+
+    fullClasses.push({ code, name, credits, wcredits, summary, dependencies })
+  }
+
   fs.writeFileSync(
     './src/definitions/allclasses.json',
-    JSON.stringify(fullClasses)
+    JSON.stringify(fullClasses, null, 4)
   )
 })()
 
