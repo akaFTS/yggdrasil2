@@ -19,18 +19,18 @@ const grabClassesFromTrack = track => [
 ]
 
 ; (async function () {
-  const remaining = new Set([
-    ...grabClassesFromTrack(geral),
-    ...grabClassesFromTrack(teoria),
-    ...grabClassesFromTrack(escience),
-    ...grabClassesFromTrack(sistemas),
-    ...grabClassesFromTrack(ia),
-  ])
 
   const allClasses = Array.from(
-    remaining
+    new Set([
+      ...grabClassesFromTrack(geral),
+      ...grabClassesFromTrack(teoria),
+      ...grabClassesFromTrack(escience),
+      ...grabClassesFromTrack(sistemas),
+      ...grabClassesFromTrack(ia),
+    ])
   )
 
+  var remaining = allClasses.length
   var fullClasses = []
   for (const code of allClasses) {
     console.log(`Buscando materia ${code}...`)
@@ -87,8 +87,8 @@ const grabClassesFromTrack = track => [
     console.log(`Finalizando ${code}...`)
     instance.exit()
 
-    remaining.delete(code)
-    console.log(`Faltam ${remaining.size}...`)
+    remaining -= 1
+    console.log(`Faltam ${remaining}...`)
 
     fullClasses.push({ code, name, credits, wcredits, summary, dependencies })
   }
