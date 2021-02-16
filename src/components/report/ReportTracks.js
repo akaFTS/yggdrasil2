@@ -19,7 +19,7 @@ const ReportTracks = ({ doneClasses, customBoxClasses }) => {
       {validTeoria && <div>- Teoria da Computação</div>}
       {validSistemas && <div>- Sistemas de Software</div>}
       {validIa && <div>- Inteligência Artificial</div>}
-      {validEscience && <div>- E-science</div>}
+      {validEscience && <div>- Ciência de Dados</div>}
     </div>
   )
 }
