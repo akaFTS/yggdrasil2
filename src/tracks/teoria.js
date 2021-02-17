@@ -80,10 +80,12 @@ export default {
       (acc, cur) => [...acc, ...cur.classes],
       []
     )
-    const completedTrackClasses = trackClasses.reduce(
+    const trackClassesUnique =  Array.from(new Set(Array.from(trackClasses)))
+    const completedTrackClasses = trackClassesUnique.reduce(
       (acc, cur) => (doneClasses.includes(cur) ? acc + 1 : acc),
       0
     )
+    
     const basicModules = [boxes.left[0], boxes.left[1], boxes.right[0]]
     const completedBasicModules = basicModules.reduce(
       (acc, cur) => (validateBox(cur, doneClasses) ? acc + 1 : acc),

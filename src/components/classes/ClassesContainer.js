@@ -26,7 +26,7 @@ const ClassesContainer = () => {
         rules={ia}
       />
       <Track
-        title="E-science"
+        title="Ciência de Dados"
         colors={['orange', 'bg-light-yellow']}
         rules={escience}
       />

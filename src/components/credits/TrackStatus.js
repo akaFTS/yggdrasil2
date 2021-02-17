@@ -41,7 +41,7 @@ const TrackStatus = ({ doneClasses, customBoxClasses }) => {
           className={`${validEscience ? 'orange' : 'white'} f4 mr2`}
         />
         <span className={validEscience ? 'near-black' : 'moon-gray'}>
-          E-Science
+          Ciência de Dados
         </span>
       </div>
       <div className="flex items-center fw5">
