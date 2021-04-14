@@ -10,6 +10,8 @@ Ele também gera o relatório de provável formando oficial do BCC, a ser entreg
 
 Basta clonar o repositório, instalar as dependências com `npm install` e depois ligar o servidor com `npm start`. Você precisa ter o Node.js instalado para que esses comandos funcionem. Depois disso, basta entrar em `localhost:3000` no seu browser.
 
+A versão ideal do Node.js para rodar os comandos é a v8. Utilize o utilitário `nvm` para trocar facilmente entre versões.
+
 ### Modificar trilhas
 
 Caso alguma matéria seja incluída ou retirada de uma trilha, ou mude algum outro requisito (tipo número mínimo de matérias de um bloco), basta acessar o arquivo de configuração da trilha desejada dentro da pasta `/tracks` e fazer as mudanças desejadas. As configurações são bastante intuitivas.

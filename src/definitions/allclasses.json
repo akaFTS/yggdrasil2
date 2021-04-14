@@ -329,6 +329,14 @@
         "dependencies": []
     },
     {
+        "code": "AGA0106",
+        "name": "Astronomia de Posição",
+        "credits": "4",
+        "wcredits": "0",
+        "summary": "1) Cinemática Celeste. (a) Definição da Esfera Celeste; (b) Sistemas de Coordenadas horizontais, geográficas, horárias, equatoriais e eclípticas; Relações entre Sistemas de Coordenadas; (c) Escalas de Medida de Tempo; Tempo solar e sideral; Tempo médio e verdadeiro; Equação do tempo e dos equinócios; Tempo Universal; Tempo Atômico e Tempo Universal Coordenado; (d) Calendários; Definição de dia, semana, mês e ano; Calendário Juliano e Gregoriano; Data Juliana;(e) Precessão e Nutação; Causas e efeitos; (f) Refração Atmosférica; (g) Movimento próprio de Estrelas, Paralaxe estelar e Aberração da Luz. 2) Astronomia Clássica: (a) Cosmografia Histórica; Descrição dos modelos de Mundo adotados ao longo do tempo; (b) Movimento Elíptico da Terra; Estudo da elipse; Equação de Kepler; (c) Leis de Kepler e Determinação de Distâncias no sistema Solar; Raio da Terra; Distância da Terra à Lua; Distância da Terra ao Sol; Raios orbitais dos planetas.",
+        "dependencies": []
+    },
+    {
         "code": "MAC0213",
         "name": "Atividade Curricular em Comunidade",
         "credits": "0",

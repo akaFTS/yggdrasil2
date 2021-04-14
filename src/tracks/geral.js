@@ -1,4 +1,4 @@
-import { BoxTypes, ClasseTypes } from '../definitions/constants'
+import { BoxTypes, ClasseTypes } from '../definitions/constants';
 
 export default {
   boxes: {
@@ -54,6 +54,7 @@ export default {
           'QBQ1252',
           'QBQ1354',
           'AGA0215',
+          'AGA0106',
         ],
         type: BoxTypes.COMPLETE_SOME,
         minimum: 1,
@@ -80,7 +81,7 @@ export default {
           'MAC0468',
           'MAC0469',
           'MAC0485',
-          'MAC0546'
+          'MAC0546',
         ],
         type: BoxTypes.FREE,
         addable: true,
@@ -88,4 +89,4 @@ export default {
       },
     ],
   },
-}
+};
