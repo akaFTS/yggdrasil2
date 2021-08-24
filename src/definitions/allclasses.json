@@ -265,6 +265,35 @@
         "dependencies": []
     },
     {
+        "code": "MAE0224",
+        "name": "Probabilidade II",
+        "credits": "4",
+        "wcredits": "0",
+        "summary": "1.\tConvergência de sequências de variáveis aleatórias.2.\tFunções características.3.\tLeis fortes e leis fracas dos grandes números.4.\tDistribuições de somas de variáveis aleatórias.5.\tTeorema limite central.6.\tTópicos de passeios aleatórios.7.\tDistribuições de valores extremos.",
+        "dependencies": [
+            "MAT0236"
+        ]
+    },
+    {
+        "code": "MAE0399",
+        "name": "Análise de Dados e Simulação",
+        "credits": "4",
+        "wcredits": "0",
+        "summary": "1.\tAnálise exploratória de um ou mais conjuntos de dados.2.\tMétodos gráficos: medidas robustas, P-P e Q-Q plots.3.\tRegressão e análise de resíduos.4.\tSimulação estática: simulação de variáveis aleatórias, métodos de Monte Carlo.5.\tSimulação de eventos discretos: filas, controle de estoques, etc.6.\tReamostragem.7.\tAceitação-rejeição.",
+        "dependencies": []
+    },
+    {
+        "code": "MAE0515",
+        "name": "Introdução à Teoria dos Jogos",
+        "credits": "4",
+        "wcredits": "0",
+        "summary": "1.\tCaracterização de um jogo. Jogos cooperativos e não-cooperativos.2.\tJogos de uma pessoa.3.\tJogos de duas pessoas: de soma zero, não-cooperativos (de soma não-zero) e cooperativos.4.\tJogos de n pessoas.",
+        "dependencies": [
+            "MAE0119",
+            "MAT2453"
+        ]
+    },
+    {
         "code": "4302112",
         "name": "Física II",
         "credits": "6",
@@ -621,16 +650,6 @@
         "wcredits": "0",
         "summary": "O ministrante selecionará os principais tópicos a serem cobertos dentre os seguintes: \nAplicações de funções geradoras, incluindo aplicações a problemas de enumeração. \nTópicos da teoria dos números. \nAspectos combinatórios da geometria e, em particular, politopos e cones.",
         "dependencies": []
-    },
-    {
-        "code": "MAE0224",
-        "name": "Probabilidade II",
-        "credits": "4",
-        "wcredits": "0",
-        "summary": "1.\tConvergência de sequências de variáveis aleatórias.2.\tFunções características.3.\tLeis fortes e leis fracas dos grandes números.4.\tDistribuições de somas de variáveis aleatórias.5.\tTeorema limite central.6.\tTópicos de passeios aleatórios.7.\tDistribuições de valores extremos.",
-        "dependencies": [
-            "MAT0236"
-        ]
     },
     {
         "code": "MAE0326",
@@ -1038,16 +1057,5 @@
         "wcredits": "0",
         "summary": "Breve digressão histórica. Cálculo proposicional. Fórmulas tautológicas, contra-válidas e     indeterminadas. Redução do número de conectivos. Problema de Post. Álgebra dos interruptores. Argumentos     válidos. Teorema da dedução. Axiomatização do cálculo proposicional. Cálculo de predicados. Quantificadores.     Fórmulas. Argumentos. Axiomatização do cálculo de predicados de 1 ordem. Noção sobre teorias formalizadas.",
         "dependencies": []
-    },
-    {
-        "code": "MAE0515",
-        "name": "Introdução à Teoria dos Jogos",
-        "credits": "4",
-        "wcredits": "0",
-        "summary": "1.\tCaracterização de um jogo. Jogos cooperativos e não-cooperativos.2.\tJogos de uma pessoa.3.\tJogos de duas pessoas: de soma zero, não-cooperativos (de soma não-zero) e cooperativos.4.\tJogos de n pessoas.",
-        "dependencies": [
-            "MAE0119",
-            "MAT2453"
-        ]
     }
 ]
