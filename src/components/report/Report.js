@@ -1,26 +1,25 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import moment from 'moment'
-import CreditsManager from '../credits/CreditsManager'
-import ReportSection from './ReportSection'
-import '../../opensans.css'
-import ReportSpecialSection from './ReportSpecialSection'
-import ReportTracks from './ReportTracks'
-import withEvolution from '../providers/withEvolution'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import moment from 'moment';
+import CreditsManager from '../credits/CreditsManager';
+import ReportSection from './ReportSection';
+import ReportSpecialSection from './ReportSpecialSection';
+import ReportTracks from './ReportTracks';
+import withEvolution from '../providers/withEvolution';
 
 class Report extends Component {
-  filterDone = classes => {
-    const { doneClasses } = this.props
-    return classes.filter(classe => doneClasses.includes(classe))
-  }
+  filterDone = (classes) => {
+    const { doneClasses } = this.props;
+    return classes.filter((classe) => doneClasses.includes(classe));
+  };
 
-  filterDoing = classes => {
-    const { doingClasses } = this.props
-    return classes.filter(classe => doingClasses.includes(classe))
-  }
+  filterDoing = (classes) => {
+    const { doingClasses } = this.props;
+    return classes.filter((classe) => doingClasses.includes(classe));
+  };
 
   render() {
-    const { name, nusp, obs, doneClasses, doingClasses } = this.props
+    const { name, nusp, obs, doneClasses, doingClasses } = this.props;
     return (
       <div className="pa4 opensans">
         <h1 className="tc f5 near-black b">Relatório de Conclusão de Curso</h1>
@@ -96,7 +95,7 @@ class Report extends Component {
           Relatório gerado pelo sistema Yggdrasil2
         </span>
       </div>
-    )
+    );
   }
 }
 
@@ -106,6 +105,6 @@ Report.propTypes = {
   obs: PropTypes.string,
   doneClasses: PropTypes.array.isRequired,
   doingClasses: PropTypes.array.isRequired,
-}
+};
 
-export default withEvolution(Report)
+export default withEvolution(Report);

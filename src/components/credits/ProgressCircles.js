@@ -1,7 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import CircularProgressbar from 'react-circular-progressbar'
-import 'react-circular-progressbar/dist/styles.css'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { CircularProgressbar } from 'react-circular-progressbar';
 
 const palettes = {
   blue: {
@@ -19,10 +18,10 @@ const palettes = {
     secondary: '#5E2CA5',
     tertiary: '#A463F2',
   },
-}
+};
 
 const ProgressCircles = ({ mandatory, elective, free, palette }) => {
-  const colorPalette = palette ? palettes[palette] : palettes.blue
+  const colorPalette = palette ? palettes[palette] : palettes.blue;
 
   return (
     <div className="relative w-100">
@@ -65,14 +64,14 @@ const ProgressCircles = ({ mandatory, elective, free, palette }) => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 ProgressCircles.propTypes = {
   mandatory: PropTypes.number.isRequired,
   elective: PropTypes.number.isRequired,
   free: PropTypes.number.isRequired,
   palette: PropTypes.string,
-}
+};
 
-export default ProgressCircles
+export default ProgressCircles;
