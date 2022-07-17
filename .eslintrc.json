@@ -7,6 +7,9 @@
       "extends": ["airbnb-typescript"],
       "parserOptions": {
         "project": ["./tsconfig.json"]
+      },
+      "rules": {
+        "@typescript-eslint/indent": "off"
       }
     }
   ],
@@ -17,7 +20,6 @@
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-filename-extension": "off",
-    "@typescript-eslint/indent": "off",
     "import/prefer-default-export": "off",
     "import/no-anonymous-default-export": "off",
     "react/jsx-curly-newline": "off",
