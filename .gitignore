@@ -39,3 +39,5 @@ yarn-error.log*
 **/public/fallback-*.js
 
 tsconfig.tsbuildinfo
+# Local Netlify folder
+.netlify

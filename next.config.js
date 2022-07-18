@@ -16,4 +16,7 @@ module.exports = withPWA({
       document: '/',
     },
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 });
